@@ -1,0 +1,221 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6C3B750D1448737B007125BA /* T3nsors.cp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B750C1448737B007125BA /* T3nsors.cp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6C3B75031448737B007125BA /* T3nsors.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = T3nsors.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3B75071448737B007125BA /* T3nsors-Prefix.pch */ = {isa = PBXFileReference; path = "T3nsors-Prefix.pch"; sourceTree = "<group>"; };
+		6C3B75081448737B007125BA /* T3nsorsProj.xcconfig */ = {isa = PBXFileReference; path = T3nsorsProj.xcconfig; sourceTree = "<group>"; };
+		6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */ = {isa = PBXFileReference; path = T3nsorsTarget.xcconfig; sourceTree = "<group>"; };
+		6C3B750A1448737B007125BA /* T3nsors.h */ = {isa = PBXFileReference; path = T3nsors.h; sourceTree = "<group>"; };
+		6C3B750B1448737B007125BA /* T3nsorsPriv.h */ = {isa = PBXFileReference; path = T3nsorsPriv.h; sourceTree = "<group>"; };
+		6C3B750C1448737B007125BA /* T3nsors.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = T3nsors.cp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6C3B75001448737B007125BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6C3B74F81448737A007125BA = {
+			isa = PBXGroup;
+			children = (
+				6C3B75051448737B007125BA /* T3nsors */,
+				6C3B75041448737B007125BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6C3B75041448737B007125BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C3B75031448737B007125BA /* T3nsors.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C3B75051448737B007125BA /* T3nsors */ = {
+			isa = PBXGroup;
+			children = (
+				6C3B75081448737B007125BA /* T3nsorsProj.xcconfig */,
+				6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */,
+				6C3B750A1448737B007125BA /* T3nsors.h */,
+				6C3B750B1448737B007125BA /* T3nsorsPriv.h */,
+				6C3B750C1448737B007125BA /* T3nsors.cp */,
+				6C3B75061448737B007125BA /* Supporting Files */,
+			);
+			path = T3nsors;
+			sourceTree = "<group>";
+		};
+		6C3B75061448737B007125BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6C3B75071448737B007125BA /* T3nsors-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6C3B75011448737B007125BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6C3B75021448737B007125BA /* T3nsors */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C3B75101448737B007125BA /* Build configuration list for PBXNativeTarget "T3nsors" */;
+			buildPhases = (
+				6C3B74FF1448737B007125BA /* Sources */,
+				6C3B75001448737B007125BA /* Frameworks */,
+				6C3B75011448737B007125BA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = T3nsors;
+			productName = T3nsors;
+			productReference = 6C3B75031448737B007125BA /* T3nsors.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6C3B74FA1448737A007125BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "University of Guelph";
+			};
+			buildConfigurationList = 6C3B74FD1448737A007125BA /* Build configuration list for PBXProject "T3nsors" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6C3B74F81448737A007125BA;
+			productRefGroup = 6C3B75041448737B007125BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C3B75021448737B007125BA /* T3nsors */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C3B74FF1448737B007125BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3B750D1448737B007125BA /* T3nsors.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6C3B750E1448737B007125BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6C3B750F1448737B007125BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6C3B75111448737B007125BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6C3B75121448737B007125BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6C3B74FD1448737A007125BA /* Build configuration list for PBXProject "T3nsors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C3B750E1448737B007125BA /* Debug */,
+				6C3B750F1448737B007125BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C3B75101448737B007125BA /* Build configuration list for PBXNativeTarget "T3nsors" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C3B75111448737B007125BA /* Debug */,
+				6C3B75121448737B007125BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6C3B74FA1448737A007125BA /* Project object */;
+}
