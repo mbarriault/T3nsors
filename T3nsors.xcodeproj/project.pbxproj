@@ -7,17 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C3B750D1448737B007125BA /* T3nsors.cp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B750C1448737B007125BA /* T3nsors.cp */; };
+		6C3B751B144873CC007125BA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B751A144873CC007125BA /* main.cpp */; };
+		6C3B751D144873CC007125BA /* T3Test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3B751C144873CC007125BA /* T3Test.1 */; };
+		6C3B7521144873D2007125BA /* T3nsors.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3B75031448737B007125BA /* T3nsors.dylib */; };
+		6C3B7522144873E0007125BA /* T3nsors.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B750A1448737B007125BA /* T3nsors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B75241448750B007125BA /* array.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B75231448750B007125BA /* array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B752A144882C4007125BA /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B7529144882C4007125BA /* field.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B752C144882FD007125BA /* tuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B752B144882FD007125BA /* tuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B752E14488304007125BA /* tuple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B752D14488304007125BA /* tuple.cpp */; };
+		6C3B75351449CC9F007125BA /* field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B7527144882BF007125BA /* field.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6C3B752F1448AD09007125BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3B74FA1448737A007125BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3B75021448737B007125BA;
+			remoteInfo = T3nsors;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6C3B7515144873CC007125BA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				6C3B751D144873CC007125BA /* T3Test.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6C3B75031448737B007125BA /* T3nsors.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = T3nsors.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C3B75071448737B007125BA /* T3nsors-Prefix.pch */ = {isa = PBXFileReference; path = "T3nsors-Prefix.pch"; sourceTree = "<group>"; };
-		6C3B75081448737B007125BA /* T3nsorsProj.xcconfig */ = {isa = PBXFileReference; path = T3nsorsProj.xcconfig; sourceTree = "<group>"; };
-		6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */ = {isa = PBXFileReference; path = T3nsorsTarget.xcconfig; sourceTree = "<group>"; };
-		6C3B750A1448737B007125BA /* T3nsors.h */ = {isa = PBXFileReference; path = T3nsors.h; sourceTree = "<group>"; };
-		6C3B750B1448737B007125BA /* T3nsorsPriv.h */ = {isa = PBXFileReference; path = T3nsorsPriv.h; sourceTree = "<group>"; };
-		6C3B750C1448737B007125BA /* T3nsors.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = T3nsors.cp; sourceTree = "<group>"; };
+		6C3B75071448737B007125BA /* T3nsors-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "T3nsors-Prefix.pch"; sourceTree = "<group>"; };
+		6C3B75081448737B007125BA /* T3nsorsProj.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = T3nsorsProj.xcconfig; sourceTree = "<group>"; };
+		6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = T3nsorsTarget.xcconfig; sourceTree = "<group>"; };
+		6C3B750A1448737B007125BA /* T3nsors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = T3nsors.h; sourceTree = "<group>"; };
+		6C3B7517144873CC007125BA /* T3Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = T3Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3B751A144873CC007125BA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6C3B751C144873CC007125BA /* T3Test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = T3Test.1; sourceTree = "<group>"; };
+		6C3B75231448750B007125BA /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = array.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6C3B7527144882BF007125BA /* field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = field.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		6C3B7529144882C4007125BA /* field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field.h; sourceTree = "<group>"; };
+		6C3B752B144882FD007125BA /* tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuple.h; sourceTree = "<group>"; };
+		6C3B752D14488304007125BA /* tuple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = tuple.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +65,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C3B7514144873CC007125BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3B7521144873D2007125BA /* T3nsors.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -35,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				6C3B75051448737B007125BA /* T3nsors */,
+				6C3B7519144873CC007125BA /* T3Test */,
 				6C3B75041448737B007125BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				6C3B75031448737B007125BA /* T3nsors.dylib */,
+				6C3B7517144873CC007125BA /* T3Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,8 +100,11 @@
 				6C3B75081448737B007125BA /* T3nsorsProj.xcconfig */,
 				6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */,
 				6C3B750A1448737B007125BA /* T3nsors.h */,
-				6C3B750B1448737B007125BA /* T3nsorsPriv.h */,
-				6C3B750C1448737B007125BA /* T3nsors.cp */,
+				6C3B75231448750B007125BA /* array.h */,
+				6C3B7529144882C4007125BA /* field.h */,
+				6C3B7527144882BF007125BA /* field.cpp */,
+				6C3B752B144882FD007125BA /* tuple.h */,
+				6C3B752D14488304007125BA /* tuple.cpp */,
 				6C3B75061448737B007125BA /* Supporting Files */,
 			);
 			path = T3nsors;
@@ -68,6 +118,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6C3B7519144873CC007125BA /* T3Test */ = {
+			isa = PBXGroup;
+			children = (
+				6C3B751A144873CC007125BA /* main.cpp */,
+				6C3B751C144873CC007125BA /* T3Test.1 */,
+			);
+			path = T3Test;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -75,6 +134,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3B7522144873E0007125BA /* T3nsors.h in Headers */,
+				6C3B75241448750B007125BA /* array.h in Headers */,
+				6C3B752C144882FD007125BA /* tuple.h in Headers */,
+				6C3B752A144882C4007125BA /* field.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +161,24 @@
 			productReference = 6C3B75031448737B007125BA /* T3nsors.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
+		6C3B7516144873CC007125BA /* T3Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C3B751E144873CC007125BA /* Build configuration list for PBXNativeTarget "T3Test" */;
+			buildPhases = (
+				6C3B7513144873CC007125BA /* Sources */,
+				6C3B7514144873CC007125BA /* Frameworks */,
+				6C3B7515144873CC007125BA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C3B75301448AD09007125BA /* PBXTargetDependency */,
+			);
+			name = T3Test;
+			productName = T3Test;
+			productReference = 6C3B7517144873CC007125BA /* T3Test */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -120,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				6C3B75021448737B007125BA /* T3nsors */,
+				6C3B7516144873CC007125BA /* T3Test */,
 			);
 		};
 /* End PBXProject section */
@@ -129,11 +211,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3B750D1448737B007125BA /* T3nsors.cp in Sources */,
+				6C3B752E14488304007125BA /* tuple.cpp in Sources */,
+				6C3B75351449CC9F007125BA /* field.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C3B7513144873CC007125BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3B751B144873CC007125BA /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6C3B75301448AD09007125BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3B75021448737B007125BA /* T3nsors */;
+			targetProxy = 6C3B752F1448AD09007125BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6C3B750E1448737B007125BA /* Debug */ = {
@@ -141,6 +240,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -151,7 +251,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -167,11 +267,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -195,6 +296,20 @@
 			};
 			name = Release;
 		};
+		6C3B751F144873CC007125BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6C3B7520144873CC007125BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -212,6 +327,14 @@
 			buildConfigurations = (
 				6C3B75111448737B007125BA /* Debug */,
 				6C3B75121448737B007125BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6C3B751E144873CC007125BA /* Build configuration list for PBXNativeTarget "T3Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C3B751F144873CC007125BA /* Debug */,
+				6C3B7520144873CC007125BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

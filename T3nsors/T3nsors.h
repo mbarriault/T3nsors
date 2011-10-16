@@ -10,14 +10,8 @@
 #ifndef T3nsors_
 #define T3nsors_
 
-/* The classes below are exported */
-#pragma GCC visibility push(default)
+#include "array.h"
+#include "tuple.h"
+#include "field.h"
 
-class T3nsors
-{
-	public:
-		void HelloWorld(const char *);
-};
-
-#pragma GCC visibility pop
 #endif
