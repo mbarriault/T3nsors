@@ -1,48 +1,53 @@
 //
-//  field.h
+//  Field.h
 //  T3nsors
 //
 //  Created by Michael Barriault on 11-10-14.
 //  Copyright (c) 2011 University of Guelph. All rights reserved.
 //
 
-#ifndef T3nsors_field_h
-#define T3nsors_field_h
+#ifndef T3nsors_Field_h
+#define T3nsors_Field_h
 
-#include "tuple.h"
+#include "Tuple.h"
 
 namespace T3 {
-    class field : public array<double> {
+    class Field : public Array<double> {
     public:
-        tuple N;
-        field(tuple);
-        field(tuple,array<double>);
+        Tuple N;
+        Field(Tuple,Object*parent=NULL);
+        Field(Tuple,Array<double>);
         double& operator()(int,...);
         double operator()(int,...) const;
-        field operator*(const double& a) const {
-            return field(N, ((array<double>*)(this))->multiply(a));
+        Field operator*(const double& a) const {
+            Field other = *this;
+            other.expand(a);
+            return other;
         }
-        field& operator+=(const field& x) {
-            increment((array<double>)x);
+        Field& operator*=(const double& a) {
+            expand(a);
             return *this;
         }
-#define field_BINARY(name, op) \
-        field operator op (const field& x) { \
-            return field(N, name(x)); \
+        Field& operator+=(const Field& x) {
+            increment(x);
+            return *this;
         }
-        field_BINARY(add, +);
-        field_BINARY(subtract, -);
-        field_BINARY(multiply, *);
-        field_BINARY(divide, /);
+#define Field_BINARY(name, op) \
+        Field operator op (const Field& x) { \
+            return Field(N, name(x)); \
+        }
+        Field_BINARY(add, +);
+        Field_BINARY(subtract, -);
         
         double L2(int);
     };
 }
 
-T3::field operator*(const double&, const T3::field&);
-std::ostream& operator<<(std::ostream&, T3::field);
-T3::field LC(double,T3::field*,...);
+T3::Field operator-(T3::Field);
+T3::Field operator*(const double&, const T3::Field&);
+std::ostream& operator<<(std::ostream&, T3::Field);
+T3::Field LC(double,T3::Field*,...);
 
-//_LC_PROTOTYPE(T3::field);
+//_LC_PROTOTYPE(T3::Field);
 
 #endif

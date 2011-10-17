@@ -1,26 +1,26 @@
 //
-//  tuple.h
+//  Tuple.h
 //  T3nsors
 //
 //  Created by Michael Barriault on 11-10-14.
 //  Copyright (c) 2011 University of Guelph. All rights reserved.
 //
 
-#ifndef T3nsors_tuple_h
-#define T3nsors_tuple_h
+#ifndef T3nsors_Tuple_h
+#define T3nsors_Tuple_h
 
-#include "array.h"
+#include "Array.h"
 
 namespace T3 {
-    class tuple : public array<int> {
+    class Tuple : public Array<int> {
     public:
-        tuple(int, ...);
-//        tuple(std::initializer_list<int>);
+        Tuple(int, ...);
+//        Tuple(std::initializer_list<int>);
         
         int Si(int=-1) const;
         int Pr(int=-1) const;
-        tuple map(int) const;
-        int map(tuple) const;
+        Tuple map(int) const;
+        int map(Tuple) const;
     };
 }
 
