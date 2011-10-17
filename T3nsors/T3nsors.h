@@ -10,8 +10,15 @@
 #ifndef T3nsors_
 #define T3nsors_
 
-#include "array.h"
-#include "tuple.h"
-#include "field.h"
+#include "Object.h"
+#include "Array.h"
+#include "Tuple.h"
+#include "Field.h"
+#include "Tensor.h"
+#include "Scalar.h"
+#include "Vector.h"
+#include "Partial.h"
+#include "Cartesian.h"
+#include "Axisymmetric.h"
 
 #endif

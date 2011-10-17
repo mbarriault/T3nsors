@@ -11,13 +11,25 @@
 		6C3B751D144873CC007125BA /* T3Test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C3B751C144873CC007125BA /* T3Test.1 */; };
 		6C3B7521144873D2007125BA /* T3nsors.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3B75031448737B007125BA /* T3nsors.dylib */; };
 		6C3B7522144873E0007125BA /* T3nsors.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B750A1448737B007125BA /* T3nsors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C3B75241448750B007125BA /* array.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B75231448750B007125BA /* array.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C3B752A144882C4007125BA /* field.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B7529144882C4007125BA /* field.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C3B752C144882FD007125BA /* tuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B752B144882FD007125BA /* tuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C3B752E14488304007125BA /* tuple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B752D14488304007125BA /* tuple.cpp */; };
-		6C3B75351449CC9F007125BA /* field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B7527144882BF007125BA /* field.cpp */; };
-		6CC6E0CE144B39730022C0CD /* coordinates.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC6E0CD144B39730022C0CD /* coordinates.h */; };
-		6CC6E0D0144B39870022C0CD /* coordinates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6E0CF144B39870022C0CD /* coordinates.cpp */; };
+		6C3B75241448750B007125BA /* Array.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B75231448750B007125BA /* Array.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B752A144882C4007125BA /* Field.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B7529144882C4007125BA /* Field.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B752C144882FD007125BA /* Tuple.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C3B752B144882FD007125BA /* Tuple.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C3B752E14488304007125BA /* Tuple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B752D14488304007125BA /* Tuple.cpp */; };
+		6C3B75351449CC9F007125BA /* Field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B7527144882BF007125BA /* Field.cpp */; };
+		6C40DD8A144CB74C00529720 /* Axisymmetric.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40DD89144CB74C00529720 /* Axisymmetric.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C40DD8C144CB75200529720 /* Axisymmetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DD8B144CB75200529720 /* Axisymmetric.cpp */; };
+		6CA95855144C842900E50B34 /* Partial.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95854144C842900E50B34 /* Partial.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA95857144C843600E50B34 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95856144C843600E50B34 /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA95859144C855B00E50B34 /* Partial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95858144C855B00E50B34 /* Partial.cpp */; };
+		6CA9585B144C989F00E50B34 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA9585A144C989F00E50B34 /* Connection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA9585D144C991A00E50B34 /* Tensor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA9585C144C991900E50B34 /* Tensor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA9585F144C992000E50B34 /* Tensor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9585E144C992000E50B34 /* Tensor.cpp */; };
+		6CA95861144CA6CC00E50B34 /* Cartesian.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95860144CA6CC00E50B34 /* Cartesian.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA95863144CA75800E50B34 /* Cartesian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95862144CA75800E50B34 /* Cartesian.cpp */; };
+		6CA95865144CA94E00E50B34 /* Scalar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95864144CA94E00E50B34 /* Scalar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA95867144CA95300E50B34 /* Scalar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95866144CA95300E50B34 /* Scalar.cpp */; };
+		6CA95869144CAA9600E50B34 /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95868144CAA9600E50B34 /* Vector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CA9586B144CAA9B00E50B34 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9586A144CAA9B00E50B34 /* Vector.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +64,25 @@
 		6C3B7517144873CC007125BA /* T3Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = T3Test; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3B751A144873CC007125BA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6C3B751C144873CC007125BA /* T3Test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = T3Test.1; sourceTree = "<group>"; };
-		6C3B75231448750B007125BA /* array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = array.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		6C3B7527144882BF007125BA /* field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = field.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		6C3B7529144882C4007125BA /* field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = field.h; sourceTree = "<group>"; };
-		6C3B752B144882FD007125BA /* tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuple.h; sourceTree = "<group>"; };
-		6C3B752D14488304007125BA /* tuple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = tuple.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		6CC6E0CD144B39730022C0CD /* coordinates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coordinates.h; sourceTree = "<group>"; };
-		6CC6E0CF144B39870022C0CD /* coordinates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coordinates.cpp; sourceTree = "<group>"; };
+		6C3B75231448750B007125BA /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Array.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6C3B7527144882BF007125BA /* Field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Field.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		6C3B7529144882C4007125BA /* Field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Field.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6C3B752B144882FD007125BA /* Tuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tuple.h; sourceTree = "<group>"; };
+		6C3B752D14488304007125BA /* Tuple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Tuple.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		6C40DD89144CB74C00529720 /* Axisymmetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Axisymmetric.h; sourceTree = "<group>"; };
+		6C40DD8B144CB75200529720 /* Axisymmetric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Axisymmetric.cpp; sourceTree = "<group>"; };
+		6CA95854144C842900E50B34 /* Partial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partial.h; sourceTree = "<group>"; };
+		6CA95856144C843600E50B34 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Object.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6CA95858144C855B00E50B34 /* Partial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Partial.cpp; sourceTree = "<group>"; };
+		6CA9585A144C989F00E50B34 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		6CA9585C144C991900E50B34 /* Tensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tensor.h; sourceTree = "<group>"; };
+		6CA9585E144C992000E50B34 /* Tensor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tensor.cpp; sourceTree = "<group>"; };
+		6CA95860144CA6CC00E50B34 /* Cartesian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cartesian.h; sourceTree = "<group>"; };
+		6CA95862144CA75800E50B34 /* Cartesian.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cartesian.cpp; sourceTree = "<group>"; };
+		6CA95864144CA94E00E50B34 /* Scalar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scalar.h; sourceTree = "<group>"; };
+		6CA95866144CA95300E50B34 /* Scalar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scalar.cpp; sourceTree = "<group>"; };
+		6CA95868144CAA9600E50B34 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
+		6CA9586A144CAA9B00E50B34 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,13 +128,25 @@
 				6C3B75081448737B007125BA /* T3nsorsProj.xcconfig */,
 				6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */,
 				6C3B750A1448737B007125BA /* T3nsors.h */,
-				6C3B75231448750B007125BA /* array.h */,
-				6C3B7529144882C4007125BA /* field.h */,
-				6C3B7527144882BF007125BA /* field.cpp */,
-				6C3B752B144882FD007125BA /* tuple.h */,
-				6C3B752D14488304007125BA /* tuple.cpp */,
-				6CC6E0CD144B39730022C0CD /* coordinates.h */,
-				6CC6E0CF144B39870022C0CD /* coordinates.cpp */,
+				6CA95856144C843600E50B34 /* Object.h */,
+				6C3B75231448750B007125BA /* Array.h */,
+				6C3B752B144882FD007125BA /* Tuple.h */,
+				6C3B752D14488304007125BA /* Tuple.cpp */,
+				6C3B7529144882C4007125BA /* Field.h */,
+				6C3B7527144882BF007125BA /* Field.cpp */,
+				6CA9585C144C991900E50B34 /* Tensor.h */,
+				6CA9585E144C992000E50B34 /* Tensor.cpp */,
+				6CA95864144CA94E00E50B34 /* Scalar.h */,
+				6CA95866144CA95300E50B34 /* Scalar.cpp */,
+				6CA95868144CAA9600E50B34 /* Vector.h */,
+				6CA9586A144CAA9B00E50B34 /* Vector.cpp */,
+				6CA95854144C842900E50B34 /* Partial.h */,
+				6CA95858144C855B00E50B34 /* Partial.cpp */,
+				6CA9585A144C989F00E50B34 /* Connection.h */,
+				6CA95860144CA6CC00E50B34 /* Cartesian.h */,
+				6CA95862144CA75800E50B34 /* Cartesian.cpp */,
+				6C40DD89144CB74C00529720 /* Axisymmetric.h */,
+				6C40DD8B144CB75200529720 /* Axisymmetric.cpp */,
 				6C3B75061448737B007125BA /* Supporting Files */,
 			);
 			path = T3nsors;
@@ -141,10 +177,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3B7522144873E0007125BA /* T3nsors.h in Headers */,
-				6C3B75241448750B007125BA /* array.h in Headers */,
-				6C3B752C144882FD007125BA /* tuple.h in Headers */,
-				6C3B752A144882C4007125BA /* field.h in Headers */,
-				6CC6E0CE144B39730022C0CD /* coordinates.h in Headers */,
+				6CA95857144C843600E50B34 /* Object.h in Headers */,
+				6C3B75241448750B007125BA /* Array.h in Headers */,
+				6C3B752C144882FD007125BA /* Tuple.h in Headers */,
+				6C3B752A144882C4007125BA /* Field.h in Headers */,
+				6CA9585D144C991A00E50B34 /* Tensor.h in Headers */,
+				6CA95865144CA94E00E50B34 /* Scalar.h in Headers */,
+				6CA95869144CAA9600E50B34 /* Vector.h in Headers */,
+				6CA95855144C842900E50B34 /* Partial.h in Headers */,
+				6CA9585B144C989F00E50B34 /* Connection.h in Headers */,
+				6CA95861144CA6CC00E50B34 /* Cartesian.h in Headers */,
+				6C40DD8A144CB74C00529720 /* Axisymmetric.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,9 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3B752E14488304007125BA /* tuple.cpp in Sources */,
-				6C3B75351449CC9F007125BA /* field.cpp in Sources */,
-				6CC6E0D0144B39870022C0CD /* coordinates.cpp in Sources */,
+				6C3B752E14488304007125BA /* Tuple.cpp in Sources */,
+				6C3B75351449CC9F007125BA /* Field.cpp in Sources */,
+				6CA9585F144C992000E50B34 /* Tensor.cpp in Sources */,
+				6CA95867144CA95300E50B34 /* Scalar.cpp in Sources */,
+				6CA9586B144CAA9B00E50B34 /* Vector.cpp in Sources */,
+				6CA95859144C855B00E50B34 /* Partial.cpp in Sources */,
+				6CA95863144CA75800E50B34 /* Cartesian.cpp in Sources */,
+				6C40DD8C144CB75200529720 /* Axisymmetric.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
