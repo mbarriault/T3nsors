@@ -20,5 +20,8 @@
 #include "Partial.h"
 #include "Cartesian.h"
 #include "Axisymmetric.h"
+#include "Set.h"
+#include "Stream.h"
+#include "System.h"
 
 #endif

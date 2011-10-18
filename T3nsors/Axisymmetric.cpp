@@ -93,3 +93,9 @@ double T3::Axisymmetric::Int(Field x, int p) {
     return l2x;
 }
 
+std::ostream& operator<<(std::ostream& out, T3::Axisymmetric x) {
+    for ( T3::Partial& D : x )
+        out << D << "\n";
+    return out;
+}
+

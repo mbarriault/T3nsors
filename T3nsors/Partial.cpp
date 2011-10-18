@@ -65,6 +65,7 @@ T3::Partial T3::Partial::Polar(int p, int n, Object* parent) {
 }
 
 double T3::Partial::operator()(int i) {
+    i = mod(i, n);
     return a + i*d;
 }
 

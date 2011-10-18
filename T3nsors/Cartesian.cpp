@@ -12,8 +12,8 @@
 T3::Cartesian::Cartesian(int d, int n, double x0, double xn, ...) {
     Tensor::dim = d;
     Tensor::N = Tuple(d);
-    Tensor::N[0] = n+1;
-    push_back(Partial::Cartesian(0, n+1, x0, xn, this));
+    push_back(Partial::Cartesian(0, n, x0, xn, this));
+    Tensor::N[0] = back().n;
     va_list args;
     va_start(args, xn);
     FRO(i,1,d) {
@@ -54,5 +54,11 @@ double T3::Cartesian::Int(Field x, int p) {
     FOR(o, size()) l2x += pow(x[o], p);
     l2x = pow(l2x/size(), 1./p);
     return l2x;
+}
+
+std::ostream& operator<<(std::ostream& out, T3::Cartesian x) {
+    for ( T3::Partial& D : x )
+        out << D << "\n";
+    return out;
 }
 

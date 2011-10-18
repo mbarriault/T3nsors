@@ -24,4 +24,6 @@ namespace T3 {
     };
 }
 
+std::ostream& operator<<(std::ostream&, T3::Cartesian);
+
 #endif

@@ -18,6 +18,15 @@
 		6C3B75351449CC9F007125BA /* Field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C3B7527144882BF007125BA /* Field.cpp */; };
 		6C40DD8A144CB74C00529720 /* Axisymmetric.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40DD89144CB74C00529720 /* Axisymmetric.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C40DD8C144CB75200529720 /* Axisymmetric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DD8B144CB75200529720 /* Axisymmetric.cpp */; };
+		6C40DD8E144CE9C800529720 /* Set.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40DD8D144CE9C800529720 /* Set.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C40DD90144CE9CE00529720 /* Set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DD8F144CE9CE00529720 /* Set.cpp */; };
+		6C40DD92144CEAA200529720 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40DD91144CEAA200529720 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C40DD94144CEAA800529720 /* Stream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DD93144CEAA800529720 /* Stream.cpp */; };
+		6C40DD96144CF01600529720 /* System.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40DD95144CF01600529720 /* System.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C40DD98144CF01B00529720 /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DD97144CF01B00529720 /* System.cpp */; };
+		6C40DDA1144CF72800529720 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DDA0144CF72800529720 /* main.cpp */; };
+		6C40DDA3144CF72800529720 /* WaveTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C40DDA2144CF72800529720 /* WaveTest.1 */; };
+		6C40DDA9144CF73C00529720 /* T3nsors.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3B75031448737B007125BA /* T3nsors.dylib */; };
 		6CA95855144C842900E50B34 /* Partial.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95854144C842900E50B34 /* Partial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA95857144C843600E50B34 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95856144C843600E50B34 /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA95859144C855B00E50B34 /* Partial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95858144C855B00E50B34 /* Partial.cpp */; };
@@ -40,6 +49,13 @@
 			remoteGlobalIDString = 6C3B75021448737B007125BA;
 			remoteInfo = T3nsors;
 		};
+		6C40DDA7144CF72D00529720 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3B74FA1448737A007125BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3B75021448737B007125BA;
+			remoteInfo = T3nsors;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +66,16 @@
 			dstSubfolderSpec = 0;
 			files = (
 				6C3B751D144873CC007125BA /* T3Test.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		6C40DD9B144CF72800529720 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				6C40DDA3144CF72800529720 /* WaveTest.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -71,6 +97,15 @@
 		6C3B752D14488304007125BA /* Tuple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Tuple.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		6C40DD89144CB74C00529720 /* Axisymmetric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Axisymmetric.h; sourceTree = "<group>"; };
 		6C40DD8B144CB75200529720 /* Axisymmetric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Axisymmetric.cpp; sourceTree = "<group>"; };
+		6C40DD8D144CE9C800529720 /* Set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Set.h; sourceTree = "<group>"; };
+		6C40DD8F144CE9CE00529720 /* Set.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Set.cpp; sourceTree = "<group>"; };
+		6C40DD91144CEAA200529720 /* Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
+		6C40DD93144CEAA800529720 /* Stream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stream.cpp; sourceTree = "<group>"; };
+		6C40DD95144CF01600529720 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
+		6C40DD97144CF01B00529720 /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
+		6C40DD9D144CF72800529720 /* WaveTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WaveTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C40DDA0144CF72800529720 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6C40DDA2144CF72800529720 /* WaveTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = WaveTest.1; sourceTree = "<group>"; };
 		6CA95854144C842900E50B34 /* Partial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partial.h; sourceTree = "<group>"; };
 		6CA95856144C843600E50B34 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Object.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6CA95858144C855B00E50B34 /* Partial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Partial.cpp; sourceTree = "<group>"; };
@@ -101,6 +136,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C40DD9A144CF72800529720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C40DDA9144CF73C00529720 /* T3nsors.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -109,6 +152,7 @@
 			children = (
 				6C3B75051448737B007125BA /* T3nsors */,
 				6C3B7519144873CC007125BA /* T3Test */,
+				6C40DD9F144CF72800529720 /* WaveTest */,
 				6C3B75041448737B007125BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,6 +162,7 @@
 			children = (
 				6C3B75031448737B007125BA /* T3nsors.dylib */,
 				6C3B7517144873CC007125BA /* T3Test */,
+				6C40DD9D144CF72800529720 /* WaveTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +192,12 @@
 				6CA95862144CA75800E50B34 /* Cartesian.cpp */,
 				6C40DD89144CB74C00529720 /* Axisymmetric.h */,
 				6C40DD8B144CB75200529720 /* Axisymmetric.cpp */,
+				6C40DD8D144CE9C800529720 /* Set.h */,
+				6C40DD8F144CE9CE00529720 /* Set.cpp */,
+				6C40DD91144CEAA200529720 /* Stream.h */,
+				6C40DD93144CEAA800529720 /* Stream.cpp */,
+				6C40DD95144CF01600529720 /* System.h */,
+				6C40DD97144CF01B00529720 /* System.cpp */,
 				6C3B75061448737B007125BA /* Supporting Files */,
 			);
 			path = T3nsors;
@@ -169,6 +220,15 @@
 			path = T3Test;
 			sourceTree = "<group>";
 		};
+		6C40DD9F144CF72800529720 /* WaveTest */ = {
+			isa = PBXGroup;
+			children = (
+				6C40DDA0144CF72800529720 /* main.cpp */,
+				6C40DDA2144CF72800529720 /* WaveTest.1 */,
+			);
+			path = WaveTest;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -188,6 +248,9 @@
 				6CA9585B144C989F00E50B34 /* Connection.h in Headers */,
 				6CA95861144CA6CC00E50B34 /* Cartesian.h in Headers */,
 				6C40DD8A144CB74C00529720 /* Axisymmetric.h in Headers */,
+				6C40DD8E144CE9C800529720 /* Set.h in Headers */,
+				6C40DD92144CEAA200529720 /* Stream.h in Headers */,
+				6C40DD96144CF01600529720 /* System.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +292,24 @@
 			productReference = 6C3B7517144873CC007125BA /* T3Test */;
 			productType = "com.apple.product-type.tool";
 		};
+		6C40DD9C144CF72800529720 /* WaveTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C40DDA4144CF72800529720 /* Build configuration list for PBXNativeTarget "WaveTest" */;
+			buildPhases = (
+				6C40DD99144CF72800529720 /* Sources */,
+				6C40DD9A144CF72800529720 /* Frameworks */,
+				6C40DD9B144CF72800529720 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C40DDA8144CF72D00529720 /* PBXTargetDependency */,
+			);
+			name = WaveTest;
+			productName = WaveTest;
+			productReference = 6C40DD9D144CF72800529720 /* WaveTest */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -252,6 +333,7 @@
 			targets = (
 				6C3B75021448737B007125BA /* T3nsors */,
 				6C3B7516144873CC007125BA /* T3Test */,
+				6C40DD9C144CF72800529720 /* WaveTest */,
 			);
 		};
 /* End PBXProject section */
@@ -269,6 +351,9 @@
 				6CA95859144C855B00E50B34 /* Partial.cpp in Sources */,
 				6CA95863144CA75800E50B34 /* Cartesian.cpp in Sources */,
 				6C40DD8C144CB75200529720 /* Axisymmetric.cpp in Sources */,
+				6C40DD90144CE9CE00529720 /* Set.cpp in Sources */,
+				6C40DD94144CEAA800529720 /* Stream.cpp in Sources */,
+				6C40DD98144CF01B00529720 /* System.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +365,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C40DD99144CF72800529720 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C40DDA1144CF72800529720 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -287,6 +380,11 @@
 			isa = PBXTargetDependency;
 			target = 6C3B75021448737B007125BA /* T3nsors */;
 			targetProxy = 6C3B752F1448AD09007125BA /* PBXContainerItemProxy */;
+		};
+		6C40DDA8144CF72D00529720 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3B75021448737B007125BA /* T3nsors */;
+			targetProxy = 6C40DDA7144CF72D00529720 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -366,6 +464,22 @@
 			};
 			name = Release;
 		};
+		6C40DDA5144CF72800529720 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6C40DDA6144CF72800529720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -395,6 +509,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6C40DDA4144CF72800529720 /* Build configuration list for PBXNativeTarget "WaveTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C40DDA5144CF72800529720 /* Debug */,
+				6C40DDA6144CF72800529720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,18 +17,10 @@
 namespace T3 {
     class Connection : public Array<Partial> {
     public:
-        virtual Vector operator()(Scalar) {
-            return Vector();
-        }
-        virtual Scalar operator*(Vector) {
-            return Scalar();
-        }
-        virtual Vector operator&(Vector) {
-            return Vector();
-        }
-        virtual double Int(Field,int) {
-            return 0.;
-        }
+        virtual Vector operator()(Scalar) = 0;
+        virtual Scalar operator*(Vector) = 0;
+        virtual Vector operator&(Vector) = 0;
+        virtual double Int(Field,int) = 0;
     };
 }
 
