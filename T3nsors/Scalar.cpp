@@ -8,12 +8,13 @@
 
 #include "Scalar.h"
 
-T3::Scalar::Scalar() : Tensor(0,this) {
+T3::Scalar::Scalar(Object* parent) : Tensor(0,parent) {
 }
 
-T3::Scalar::Scalar(Field x) : Tensor(0,this) {
+T3::Scalar::Scalar(Field x) : Tensor(0) {
     at(0) = x;
     at(0).parent = this;
+    parent = x.parent;
 }
 
 T3::Scalar::Scalar(Tensor x) : Tensor(x) {
@@ -30,7 +31,7 @@ double& T3::Scalar::operator()(int a, ...) {
 		o[i] = a;
 	}
     va_end(args);
-	return at(0).at(N.map(o));
+	return at(0)[N.map(o)];
 }
 
 double T3::Scalar::operator()(int a, ...) const {
@@ -43,9 +44,11 @@ double T3::Scalar::operator()(int a, ...) const {
 		o[i] = a;
 	}
     va_end(vl);
-	return at(0).at(N.map(o));
+	return at(0)[N.map(o)];
 }
 
 T3::Scalar::operator Field() {
-    return at(0);
+    Field x = at(0);
+    x.parent = parent;
+    return x;
 }

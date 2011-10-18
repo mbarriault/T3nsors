@@ -30,6 +30,8 @@ T3::Vector T3::Cartesian::operator()(T3::Scalar x) {
     FOR(i, Tensor::dim) {
         dx[i] = at(i)((Field)x);
     }
+    dx.parent = x.parent;
+    dx.fix();
     return dx;
 }
 
@@ -38,6 +40,8 @@ T3::Scalar T3::Cartesian::operator*(T3::Vector x) {
     FOR(i, Tensor::dim) {
         dx[0] += at(i)(x[i]);
     }
+    dx.parent = x.parent;
+    dx.fix();
     return dx;
 }
 
@@ -46,6 +50,8 @@ T3::Vector T3::Cartesian::operator&(T3::Vector x) {
     FOR(i, Tensor::dim) {
         dx[i] = at(mod(i+1,Tensor::dim))(x[i+2]) - at(mod(i+2,Tensor::dim))(x[i+1]);
     }
+    dx.parent = x.parent;
+    dx.fix();
     return dx;
 }
 

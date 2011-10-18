@@ -19,6 +19,8 @@ namespace T3 {
         Field(Tuple,Array<double>);
         double& operator()(int,...);
         double operator()(int,...) const;
+        double& operator[](int);
+        double operator[](int) const;
         Field operator*(const double& a) const {
             Field other = *this;
             other.expand(a);

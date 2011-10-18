@@ -37,7 +37,7 @@ int T3::System::Run() {
 }
 
 T3::System::operator Set() {
-    Set s;
+    Set s(0);
     for ( Stream& S : *this )
         s.push_back(S.back());
     return s;

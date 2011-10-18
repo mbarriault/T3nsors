@@ -44,6 +44,19 @@ double T3::Field::operator()(int a, ...) const {
 	return at(N.map(o));
 }
 
+double& T3::Field::operator[](int o) {
+    return (*(Array<double>*)(this))[o];
+}
+
+double T3::Field::operator[](int o) const {
+    double val = (*(Array<double>*)(this))[o];
+    if ( val != val ) {
+        printf("Found a NaN!");
+        parent->toss();
+    }
+    return val;
+}
+
 double T3::Field::L2(int p) {
     double l2x = 0.;
     FOR(o, size()) l2x += pow(at(o), p);

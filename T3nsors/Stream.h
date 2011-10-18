@@ -21,7 +21,8 @@ namespace T3 {
         static int nt_max;
         static Partial t;
         std::string id;
-        Stream(Tensor,std::string="");
+        Stream(Tensor,Object*parent=NULL);
+        Stream(Tensor,std::string="",Object*parent=NULL);
         ~Stream();
         Stream& dump(bool=false);
         Tensor& operator()(int);

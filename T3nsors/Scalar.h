@@ -14,7 +14,7 @@
 namespace T3 {
     class Scalar : public Tensor {
     public:
-        Scalar();
+        Scalar(Object*parent=NULL);
         Scalar(Field);
         Scalar(Tensor);
         double& operator()(int,...);

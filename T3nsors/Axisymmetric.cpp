@@ -16,7 +16,7 @@ T3::Axisymmetric::Axisymmetric(int n, double r0, double rn) {
     push_back(Partial::Cartesian(0, n, r0, rn, this));
     push_back(Partial::Azimuth(1, back(), this));
     Tensor::N[1] = back().n;
-    push_back(Partial::Polar(2, 1));
+    push_back(Partial::Polar(2, 1, this));
     Tensor::N[2] = 1;
 }
 
@@ -25,6 +25,8 @@ T3::Vector T3::Axisymmetric::operator()(T3::Scalar x) {
     dx[0] = at(0)((Field)x);
     dx[1] = at(1)((Field)x);
     FOR(i,x.N[0]) FOR(j,x.N[1]) dx[1](i,j,0) /= at(0)(i);
+    dx.parent = x.parent;
+    dx.fix();
     return dx;
 }
 
@@ -44,6 +46,8 @@ T3::Scalar T3::Axisymmetric::operator*(T3::Vector x) {
     FOR(i,x.N[0]) FOR(j,x.N[1]) xu(i,j,0) /= at(0)(i) * sin( at(1)(j) ) / cos( at(1)(j) );
     dx += xu;
     
+    dx.parent = x.parent;
+    dx.fix();
     return dx;
 }
 
@@ -81,6 +85,8 @@ T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
     FOR(i,x.N[0]) FOR(j,x.N[1]) x[1](i,j,0) /= at(0)(i);
     cx[2] += x[1];
     
+    cx.parent = x.parent;
+    cx.fix();
     return cx;
 }
 

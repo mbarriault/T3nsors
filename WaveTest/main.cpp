@@ -18,6 +18,10 @@ Vector& g = (Vector&)x.at(2);
 Scalar& du = (Scalar&)dx.at(0); \
 Scalar& df = (Scalar&)dx.at(1); \
 Vector& dg = (Vector&)dx.at(2);
+#define D2LINK \
+Scalar& du2 = (Scalar&)dx2.at(0); \
+Scalar& df2 = (Scalar&)dx2.at(1); \
+Vector& dg2 = (Vector&)dx2.at(2);
 
 #include <T3nsors/T3nsors.h>
 #include <iostream>
@@ -33,9 +37,9 @@ public:
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::t = System::t;
         epsilon = 0.5;
-        push_back(Stream(Scalar(), "u"));
-        push_back(Stream(Scalar()));
-        push_back(Stream(Vector()));
+        push_back(Stream(Scalar(), "u", this));
+        push_back(Stream(Scalar(), this));
+        push_back(Stream(Vector(), this));
     }
     
     void Initialize() { SLINK
@@ -46,6 +50,8 @@ public:
             f(i,j) = -w*sin(w*x(i));
             g(0)(i,j) = w*sin(w*x(i));
         }
+        
+        std::cout << u << std::endl;
     }
     
     Set RHS(Set& x) { LINK
@@ -53,16 +59,27 @@ public:
         du = f;
         df = Del*g;
         dg = Del(f);
-        std::cout << "Calculating!" << std::endl;
-        return dx;
+        
+        Set dx2 = dx; D2LINK
+        FOR(j,Tensor::N[1]) {
+            df2(0,j) = 0.5*(df(0,j)+dg(0)(0,j));
+            dg2(0)(0,j) = 0.5*(dg(0)(0,j)+df(0,j));
+            df2(-1,j) = 0.5*(df(-1,j)-dg(0)(-1,j));
+            dg2(0)(-1,j) = 0.5*(dg(0)(-1,j)-df(-1,j));
+        }
+        
+        return dx2;
     }
     
     int Condition() {
-        std::cout << "Condition!" << at(0).back().t << t(-1) << std::endl;
         if ( at(0).back().t > t(-1) )
             return 1;
         else
             return 0;
+    }
+    
+    void Cleanup() { SLINK
+        std::cout << u << std::endl;
     }
 };
 

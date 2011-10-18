@@ -13,6 +13,8 @@
 #define FRO(n,i,N) for ( int n=i; n<N; n++ )
 #define LOOP(N) for ( int __n=0; __n<N; __n++ )
 
+#include <cstdio>
+
 namespace T3 {
     class Object {
     public:
@@ -23,6 +25,13 @@ namespace T3 {
         
         static int mod(int a, int p) {
             return (p + a % p) % p;
+        }
+        
+        void toss() {
+            if ( parent == 0 or parent == NULL )
+                printf("Tossed to root!\n");
+            else
+                parent->toss();
         }
     };
 }

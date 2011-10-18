@@ -10,10 +10,12 @@
 #define T3nsors_Set_h
 
 #include "Tensor.h"
+#include <iostream>
 
 namespace T3 {
     class Set : public Array<Tensor> {
     public:
+        Set(int,...);
         Set operator*(const double& a) const {
             Set other = *this;
             other.expand(a);

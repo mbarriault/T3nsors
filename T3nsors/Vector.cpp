@@ -32,5 +32,6 @@ T3::Vector T3::Vector::operator&(const Vector& v) const {
     FOR(i,d) FOR(o,N) {
         uv[i][o] = u[mod(i+1,d)][o]*v[mod(i+2,d)][o] - u[mod(i+2,d)][o]*v[mod(i+1,d)][o];
     }
+    uv.parent = parent;
     return uv;
 }

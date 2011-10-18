@@ -77,8 +77,7 @@ type _LC(double a, type* x, ...) { \
 template<class T>
 T _LC(double a, T& M, va_list args) {
     T* x;
-    while ( (a = va_arg(args, double)) ) {
-        x = va_arg(args, T*);
+    while ( (a = va_arg(args, double)) and (x = va_arg(args, T*)) ) {
         M += (*x) * a;
     }
     va_end(args);

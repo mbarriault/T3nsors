@@ -17,7 +17,7 @@ namespace T3 {
         static Tuple N;
         static int dim;
         int rank;
-        int t;
+        double t;
         
         Tensor(Object*parent=0);
         Tensor(int,Object*parent=0);
@@ -44,7 +44,10 @@ namespace T3 {
         }
         Tensor_BINARY(add, +);
         Tensor_BINARY(subtract, -);
-
+        void fix() {
+            for  ( Field& F : *this )
+                F.parent = this;
+        }
     };
 }
 
