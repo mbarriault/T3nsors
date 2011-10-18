@@ -51,11 +51,11 @@ const T3::Field T3::Tensor::operator()(int a, ...) const {
 
 void T3::Tensor::write(H5::H5File* file) {
     std::string tid = pad(t, Stream::t(-1), Stream::t.d);
-    H5::Group* group = new H5::Group(file->createGroup(((std::string)"/data/" + tid).c_str()));
-    FOR(i,size()) {
-        at(i).write(file, tid, i);
-    }
-    delete group;
+    std::string grp = (std::string)"/data/" + tid;
+    file->createGroup(grp.c_str());
+    //file->flush(H5F_SCOPE_GLOBAL);
+    FOR(i,size())
+        at(i).write(file, grp, i);
 }
 
 T3::Tensor operator*(const real& a, const T3::Tensor& x) {

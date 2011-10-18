@@ -37,8 +37,9 @@ namespace T3 {
         static Partial Azimuth(int,int,Object*parent=0);
         static Partial Azimuth(int,Partial,Object*parent=0);
         static Partial Polar(int,int,Object*parent=0);
-        real operator()(int);
         
+        real operator()(int);
+        void write(H5::H5File*);
         Field operator()(Field);
     };
 }

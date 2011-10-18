@@ -11,6 +11,7 @@
 
 #include "Tensor.h"
 #include "Partial.h"
+#include "Connection.h"
 #include <deque>
 #include <string>
 #include <H5Cpp.h>
@@ -21,11 +22,9 @@ namespace T3 {
         static int nt_min;
         static int nt_max;
         static Partial t;
-        
-        H5::H5File* file;
-        
-        Stream(Tensor,Object*parent=NULL);
-        Stream(Tensor,std::string="",Object*parent=NULL);
+        static Connection* Del;
+
+        Stream(Tensor,std::string,Object*parent=NULL);
         ~Stream();
         Stream& dump(bool=false);
         Tensor& operator()(int);

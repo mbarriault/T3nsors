@@ -69,6 +69,19 @@ real T3::Partial::operator()(int i) {
     return a + i*d;
 }
 
+void T3::Partial::write(H5::H5File* file) {
+    real data[3];
+    data[0] = a;
+    data[1] = b;
+    data[2] = d;
+    hsize_t d = 3;
+    file->createDataSet( 
+                ((std::string)"/coords/" + itos(p)).c_str(), 
+                H5::PredType::NATIVE_DOUBLE, 
+                H5::DataSpace(1, &d)
+                       ).write(data, H5::PredType::NATIVE_DOUBLE);
+}
+
 T3::Field T3::Partial::operator()(T3::Field x) {
     Field dx(x.N, x.parent);
     int dg = x.N.Pr(p+1);

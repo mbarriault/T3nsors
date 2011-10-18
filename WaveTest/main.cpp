@@ -36,10 +36,12 @@ public:
     Wave(int n, real s, real T) : Del(2, n, -1., 1., -1., 1.) , x(Del[0]) , y(Del[1]) {
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::t = System::t;
+        Stream::Del = &Del;
+        id = mkdir((std::string)"wave" + timecoord());
         epsilon = 0.5;
         push_back(Stream(Scalar(), "u", this));
-        push_back(Stream(Scalar(), this));
-        push_back(Stream(Vector(), this));
+        push_back(Stream(Scalar(), "f", this));
+        push_back(Stream(Vector(), "g", this));
     }
     
     void Initialize() { SLINK
