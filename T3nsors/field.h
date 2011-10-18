@@ -10,6 +10,7 @@
 #define T3nsors_Field_h
 
 #include "Tuple.h"
+#include <H5Cpp.h>
 
 namespace T3 {
     class Field : public Array<real> {
@@ -17,6 +18,7 @@ namespace T3 {
         Tuple N;
         Field(Tuple,Object*parent=NULL);
         Field(Tuple,Array<real>);
+        void write(H5::H5File*,std::string,int);
         real& operator()(int,...);
         real operator()(int,...) const;
         real& operator[](int);

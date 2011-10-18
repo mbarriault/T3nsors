@@ -13,6 +13,7 @@
 #include "Partial.h"
 #include <deque>
 #include <string>
+#include <H5Cpp.h>
 
 namespace T3 {
     class Stream : public std::deque<Tensor>, public Object {
@@ -20,7 +21,9 @@ namespace T3 {
         static int nt_min;
         static int nt_max;
         static Partial t;
-        std::string id;
+        
+        H5::H5File* file;
+        
         Stream(Tensor,Object*parent=NULL);
         Stream(Tensor,std::string="",Object*parent=NULL);
         ~Stream();

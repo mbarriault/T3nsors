@@ -25,6 +25,7 @@ namespace T3 {
     class Object {
     public:
         Object* parent;
+        std::string id;
         Object(Object* parent=0) {
             this->parent = parent;
         }

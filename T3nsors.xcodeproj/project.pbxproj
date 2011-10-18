@@ -39,6 +39,9 @@
 		6CA95867144CA95300E50B34 /* Scalar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95866144CA95300E50B34 /* Scalar.cpp */; };
 		6CA95869144CAA9600E50B34 /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95868144CAA9600E50B34 /* Vector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA9586B144CAA9B00E50B34 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9586A144CAA9B00E50B34 /* Vector.cpp */; };
+		6CE38D85144DE3C300FB2EC1 /* libhdf5_cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */; };
+		6CE38D88144DE3DD00FB2EC1 /* libhdf5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */; };
+		6CE38D8A144DE42900FB2EC1 /* libhdf5_hl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D89144DE42900FB2EC1 /* libhdf5_hl.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,9 @@
 		6CA95866144CA95300E50B34 /* Scalar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scalar.cpp; sourceTree = "<group>"; };
 		6CA95868144CAA9600E50B34 /* Vector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector.h; sourceTree = "<group>"; };
 		6CA9586A144CAA9B00E50B34 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
+		6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhdf5_cpp.dylib; path = usr/local/lib/libhdf5_cpp.dylib; sourceTree = SDKROOT; };
+		6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhdf5.dylib; path = usr/local/lib/libhdf5.dylib; sourceTree = SDKROOT; };
+		6CE38D89144DE42900FB2EC1 /* libhdf5_hl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhdf5_hl.dylib; path = usr/local/lib/libhdf5_hl.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE38D8A144DE42900FB2EC1 /* libhdf5_hl.dylib in Frameworks */,
+				6CE38D88144DE3DD00FB2EC1 /* libhdf5.dylib in Frameworks */,
+				6CE38D85144DE3C300FB2EC1 /* libhdf5_cpp.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +159,9 @@
 		6C3B74F81448737A007125BA = {
 			isa = PBXGroup;
 			children = (
+				6CE38D89144DE42900FB2EC1 /* libhdf5_hl.dylib */,
+				6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */,
+				6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */,
 				6C3B75051448737B007125BA /* T3nsors */,
 				6C3B7519144873CC007125BA /* T3Test */,
 				6C40DD9F144CF72800529720 /* WaveTest */,
@@ -517,6 +529,7 @@
 				6C40DDA6144CF72800529720 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,7 @@
 
 #include "Tensor.h"
 #include <cmath>
+#include "Stream.h"
 
 T3::Tuple T3::Tensor::N(Tuple(1,1));
 int T3::Tensor::dim(1);
@@ -46,6 +47,15 @@ const T3::Field T3::Tensor::operator()(int a, ...) const {
         o += a*pow(dim, i);
     }
     return at(o);
+}
+
+void T3::Tensor::write(H5::H5File* file) {
+    std::string tid = pad(t, Stream::t(-1), Stream::t.d);
+    H5::Group* group = new H5::Group(file->createGroup(((std::string)"/data/" + tid).c_str()));
+    FOR(i,size()) {
+        at(i).write(file, tid, i);
+    }
+    delete group;
 }
 
 T3::Tensor operator*(const real& a, const T3::Tensor& x) {

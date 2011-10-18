@@ -7,6 +7,7 @@
 //
 
 #include "Stream.h"
+#include "System.h"
 #include <iostream>
 
 int T3::Stream::nt_min(3);
@@ -18,24 +19,30 @@ T3::Stream::Stream(T3::Tensor x, Object* parent) {
     x.t = 0;
     x.parent = this;
     push_back(x);
+    file = NULL;
 }
 
-T3::Stream::Stream(T3::Tensor x, std::string id, Object* parent) : id(id) {
+T3::Stream::Stream(T3::Tensor x, std::string id, Object* parent) {
     this->parent = parent;
+    this->id = id;
     x.t = 0;
     x.parent = this;
     push_back(x);
+    file = new H5::H5File((parent->id + "/" + id + ".hdf").c_str(), H5F_ACC_RDWR);
 }
 
 T3::Stream::~Stream() {
     dump(true);
     clear();
+    if ( file != NULL )
+        delete file;
 }
 
 T3::Stream& T3::Stream::dump(bool all) {
     unsigned long N = size() < nt_min ? 0 : size()-(1-all)*nt_min;
     LOOP(N) {
-        //std::cout << "Popping!" << size() << std::endl;
+        if ( file != NULL )
+            front().write(file);
         pop_front();
     }
     return *this;

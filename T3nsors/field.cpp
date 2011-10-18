@@ -18,6 +18,16 @@ T3::Field::Field(Tuple N, Array<real> L) : N(N), Array<real>(L) {
     
 }
 
+void T3::Field::write(H5::H5File* file, std::string tid, int i) {
+    const hsize_t* dim = (hsize_t*)&N[0];
+    const real* data = &at(0);
+    H5::DataSpace* dataspace = new H5::DataSpace((int)N.size(), dim);
+    H5::DataSet* dataset = new H5::DataSet( file->createDataSet(((std::string)"/data/" + tid + "/" + itos(i)).c_str(), H5::PredType::NATIVE_DOUBLE, *dataspace) );
+    dataset->write(data, H5::PredType::NATIVE_DOUBLE);
+    delete dataspace;
+    delete dataset;
+}
+
 real& T3::Field::operator()(int a, ...) {
 	va_list args;
 	va_start(args,a);

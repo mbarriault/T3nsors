@@ -10,6 +10,7 @@
 #define T3nsors_Tensor_h
 
 #include "Field.h"
+#include <H5Cpp.h>
 
 namespace T3 {
     class Tensor : public Array<Field> {
@@ -24,6 +25,7 @@ namespace T3 {
         Tensor(int,Array<Field>);
         Field& operator()(int,...);
         const Field operator()(int,...) const;
+        void write(H5::H5File*);
         
         Tensor operator*(const real& a) const {
             Tensor other = *this;
