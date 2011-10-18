@@ -16,11 +16,11 @@
 namespace T3 {
     class Cartesian : public Connection {
     public:
-        Cartesian(int,int,double,double,...);
+        Cartesian(int,int,real,real,...);
         Vector operator()(Scalar);
         Scalar operator*(Vector);
         Vector operator&(Vector);
-        double Int(Field,int);
+        real Int(Field,int);
     };
 }
 

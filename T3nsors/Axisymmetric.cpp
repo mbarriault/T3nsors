@@ -9,7 +9,7 @@
 #include "Axisymmetric.h"
 #include <cmath>
 
-T3::Axisymmetric::Axisymmetric(int n, double r0, double rn) {
+T3::Axisymmetric::Axisymmetric(int n, real r0, real rn) {
     Tensor::dim = 3;
     Tensor::N = Tuple(3);
     Tensor::N[0] = n+1;
@@ -90,8 +90,8 @@ T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
     return cx;
 }
 
-double T3::Axisymmetric::Int(Field x, int p) {
-    double l2x = 0.;
+real T3::Axisymmetric::Int(Field x, int p) {
+    real l2x = 0.;
     FOR(i, at(0).n) FOR(j, at(1).n) l2x += pow(x(i,j,0), p) * pow(at(0)(i), 2.) * sin( at(1)(j) ) * at(0).d * at(1).d;
     l2x *= 2*M_PI;
     l2x /= 4./3*M_PI*pow(at(0).b-at(0).a, 3.);

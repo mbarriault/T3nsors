@@ -14,11 +14,11 @@
 namespace T3 {
     class Axisymmetric : public Connection {
     public:
-        Axisymmetric(int,double,double);
+        Axisymmetric(int,real,real);
         Vector operator()(Scalar);
         Scalar operator*(Vector);
         Vector operator&(Vector);
-        double Int(Field,int=2);
+        real Int(Field,int=2);
     };
 }
 

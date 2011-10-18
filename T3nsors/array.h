@@ -46,7 +46,7 @@ namespace T3 {
             return *this;
         }
         
-        Array<T>& expand(const double& a) {
+        Array<T>& expand(const real& a) {
             for ( T& t : *this )
                 t *= a;
             return *this;
@@ -63,11 +63,11 @@ std::ostream& operator<<(std::ostream& out, T3::Array<T>& L) {
 }
 
 #define _LC_PROTOTYPE(type) \
-type _LC(double a, type* x, ...) { \
+type _LC(real a, type* x, ...) { \
     type M = a * (*x); \
     va_list args; \
     va_start(args, x); \
-    while ( (a = va_arg(args, double)) ) { \
+    while ( (a = va_arg(args, real)) ) { \
         x = va_arg(args, type*); \
         M += a * (*x); \
     } \
@@ -75,9 +75,9 @@ type _LC(double a, type* x, ...) { \
 }
 
 template<class T>
-T _LC(double a, T& M, va_list args) {
+T _LC(real a, T& M, va_list args) {
     T* x;
-    while ( (a = va_arg(args, double)) and (x = va_arg(args, T*)) ) {
+    while ( (a = va_arg(args, real)) and (x = va_arg(args, T*)) ) {
         M += (*x) * a;
     }
     va_end(args);
@@ -85,7 +85,7 @@ T _LC(double a, T& M, va_list args) {
 }
 
 template<class T>
-T _LC(double a, T* x, ...) {
+T _LC(real a, T* x, ...) {
     T M = (*x) * a;
     va_list args;
     va_start(args, x);

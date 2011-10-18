@@ -22,22 +22,22 @@ namespace T3 {
     
     class Partial : public Object {
     public:
-        double a,b,d;
+        real a,b,d;
         int n;
         int p;
         bounds bnd;
         
         Partial();
-        Partial(int,double,int,double,Object*parent=0); // a, n, d
-        Partial(int,double,double,int,Object*parent=0); // a, b, n
-        Partial(int,double,double,double,Object*parent=0); // a, d, b
+        Partial(int,real,int,real,Object*parent=0); // a, n, d
+        Partial(int,real,real,int,Object*parent=0); // a, b, n
+        Partial(int,real,real,real,Object*parent=0); // a, d, b
         
-        static Partial Cartesian(int,int,double,double,Object*parent=0);
-        static Partial Cartesian(int,Partial,double,double,Object*parent=0);
+        static Partial Cartesian(int,int,real,real,Object*parent=0);
+        static Partial Cartesian(int,Partial,real,real,Object*parent=0);
         static Partial Azimuth(int,int,Object*parent=0);
         static Partial Azimuth(int,Partial,Object*parent=0);
         static Partial Polar(int,int,Object*parent=0);
-        double operator()(int);
+        real operator()(int);
         
         Field operator()(Field);
     };

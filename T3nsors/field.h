@@ -12,21 +12,21 @@
 #include "Tuple.h"
 
 namespace T3 {
-    class Field : public Array<double> {
+    class Field : public Array<real> {
     public:
         Tuple N;
         Field(Tuple,Object*parent=NULL);
-        Field(Tuple,Array<double>);
-        double& operator()(int,...);
-        double operator()(int,...) const;
-        double& operator[](int);
-        double operator[](int) const;
-        Field operator*(const double& a) const {
+        Field(Tuple,Array<real>);
+        real& operator()(int,...);
+        real operator()(int,...) const;
+        real& operator[](int);
+        real operator[](int) const;
+        Field operator*(const real& a) const {
             Field other = *this;
             other.expand(a);
             return other;
         }
-        Field& operator*=(const double& a) {
+        Field& operator*=(const real& a) {
             expand(a);
             return *this;
         }
@@ -41,14 +41,14 @@ namespace T3 {
         Field_BINARY(add, +);
         Field_BINARY(subtract, -);
         
-        double L2(int);
+        real L2(int);
     };
 }
 
 T3::Field operator-(T3::Field);
-T3::Field operator*(const double&, const T3::Field&);
+T3::Field operator*(const real&, const T3::Field&);
 std::ostream& operator<<(std::ostream&, T3::Field);
-T3::Field LC(double,T3::Field*,...);
+T3::Field LC(real,T3::Field*,...);
 
 //_LC_PROTOTYPE(T3::Field);
 

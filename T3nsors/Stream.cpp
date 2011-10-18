@@ -53,7 +53,7 @@ T3::Tensor T3::Stream::operator()(int i) const {
 
 T3::Stream& T3::Stream::operator&=(const T3::Tensor& x) {
     if ( size() > nt_max ) dump();
-    double t0 = 0.;
+    real t0 = 0.;
     if ( size() > 0 )
         t0 = back().t;
     push_back(x);

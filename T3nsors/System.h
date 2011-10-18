@@ -19,7 +19,7 @@ namespace T3 {
         Set Dissipate(const Set&);
     public:
         static Partial t;
-        double epsilon;
+        real epsilon;
         virtual Set RHS(Set&) = 0;
         virtual int Condition() = 0;
         virtual void Initialize() {

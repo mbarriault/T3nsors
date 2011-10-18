@@ -48,11 +48,11 @@ const T3::Field T3::Tensor::operator()(int a, ...) const {
     return at(o);
 }
 
-T3::Tensor operator*(const double& a, const T3::Tensor& x) {
+T3::Tensor operator*(const real& a, const T3::Tensor& x) {
     return x * a;
 }
 
-T3::Tensor LC(double a, T3::Tensor* x, ...) {
+T3::Tensor LC(real a, T3::Tensor* x, ...) {
     T3::Tensor M = (*x) * a;
     va_list args;
     va_start(args, x);

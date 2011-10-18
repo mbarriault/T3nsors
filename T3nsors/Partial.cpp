@@ -13,29 +13,29 @@ T3::Partial::Partial() {
     
 }
 
-T3::Partial::Partial(int p, double a, int n, double d, Object* parent) : p(p), a(a), n(n), d(d), Object(parent) {
+T3::Partial::Partial(int p, real a, int n, real d, Object* parent) : p(p), a(a), n(n), d(d), Object(parent) {
     b = a + n*d;
     bnd = bounds_edge;
 }
 
-T3::Partial::Partial(int p, double a, double b, int n, Object* parent) : p(p), a(a), b(b), n(n), Object(parent) {
+T3::Partial::Partial(int p, real a, real b, int n, Object* parent) : p(p), a(a), b(b), n(n), Object(parent) {
     d = (b-a)/n;
     bnd = bounds_edge;
 }
 
-T3::Partial::Partial(int p, double a, double d, double b, Object* parent) : p(p), a(a), d(d), b(b), Object(parent) {
+T3::Partial::Partial(int p, real a, real d, real b, Object* parent) : p(p), a(a), d(d), b(b), Object(parent) {
     n = int((b-a)/d);
     bnd = bounds_edge;
 }
 
-T3::Partial T3::Partial::Cartesian(int p, int n, double a, double b, Object* parent) {
+T3::Partial T3::Partial::Cartesian(int p, int n, real a, real b, Object* parent) {
     Partial D(p, a, b, n, parent);
     D.n += 1;
     D.bnd = bounds_edge;
     return D;
 }
 
-T3::Partial T3::Partial::Cartesian(int p, Partial D, double a, double b, Object* parent) {
+T3::Partial T3::Partial::Cartesian(int p, Partial D, real a, real b, Object* parent) {
     Partial E(p, a, D.d, b, parent);
     E.n += 1;
     E.bnd = bounds_edge;
@@ -64,7 +64,7 @@ T3::Partial T3::Partial::Polar(int p, int n, Object* parent) {
     return D;
 }
 
-double T3::Partial::operator()(int i) {
+real T3::Partial::operator()(int i) {
     i = mod(i, n);
     return a + i*d;
 }

@@ -21,7 +21,7 @@ T3::Scalar::Scalar(Tensor x) : Tensor(x) {
     
 }
 
-double& T3::Scalar::operator()(int a, ...) {
+real& T3::Scalar::operator()(int a, ...) {
 	va_list args;
 	va_start(args,a);
 	T3::Tuple o((int)N.size());
@@ -34,7 +34,7 @@ double& T3::Scalar::operator()(int a, ...) {
 	return at(0)[N.map(o)];
 }
 
-double T3::Scalar::operator()(int a, ...) const {
+real T3::Scalar::operator()(int a, ...) const {
 	va_list vl;
 	va_start(vl,a);
 	T3::Tuple o((int)N.size());

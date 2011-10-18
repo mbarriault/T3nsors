@@ -17,7 +17,7 @@ namespace T3 {
         static Tuple N;
         static int dim;
         int rank;
-        double t;
+        real t;
         
         Tensor(Object*parent=0);
         Tensor(int,Object*parent=0);
@@ -25,12 +25,12 @@ namespace T3 {
         Field& operator()(int,...);
         const Field operator()(int,...) const;
         
-        Tensor operator*(const double& a) const {
+        Tensor operator*(const real& a) const {
             Tensor other = *this;
             other.expand(a);
             return other;
         }
-        Tensor& operator*=(const double& a) {
+        Tensor& operator*=(const real& a) {
             expand(a);
             return *this;
         }
@@ -51,8 +51,8 @@ namespace T3 {
     };
 }
 
-T3::Tensor operator*(const double&, const T3::Tensor&);
-T3::Tensor LC(double,T3::Tensor*,...);
+T3::Tensor operator*(const real&, const T3::Tensor&);
+T3::Tensor LC(real,T3::Tensor*,...);
 std::ostream& operator<<(std::ostream&,T3::Tensor);
 
 #endif

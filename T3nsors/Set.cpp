@@ -15,7 +15,7 @@ T3::Set::Set(int N, ...) {
     va_end(args);
 }
 
-T3::Set LC(double a, T3::Set* x, ...) {
+T3::Set LC(real a, T3::Set* x, ...) {
     T3::Set M = (*x) * a;
     va_list args;
     va_start(args, x);

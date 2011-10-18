@@ -17,8 +17,8 @@ namespace T3 {
         Scalar(Object*parent=NULL);
         Scalar(Field);
         Scalar(Tensor);
-        double& operator()(int,...);
-        double operator()(int,...) const;
+        real& operator()(int,...);
+        real operator()(int,...) const;
         operator Field();
         Scalar& operator+=(Field x) {
             at(0).increment(x);

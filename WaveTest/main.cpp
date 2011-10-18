@@ -33,7 +33,7 @@ public:
     Cartesian Del;
     Partial& x;
     Partial& y;
-    Wave(int n, double s, double T) : Del(2, n, -1., 1., -1., 1.) , x(Del[0]) , y(Del[1]) {
+    Wave(int n, real s, real T) : Del(2, n, -1., 1., -1., 1.) , x(Del[0]) , y(Del[1]) {
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::t = System::t;
         epsilon = 0.5;
@@ -43,7 +43,7 @@ public:
     }
     
     void Initialize() { SLINK
-        double w = 2*M_PI / (Del[1].b-Del[0].a);
+        real w = 2*M_PI / (Del[1].b-Del[0].a);
         
         FOR(i,Tensor::N[0]) FOR(j,Tensor::N[1]) {
             u(i,j) = cos(w*x(i));

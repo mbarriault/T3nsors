@@ -9,7 +9,7 @@
 #include "Cartesian.h"
 #include <cmath>
 
-T3::Cartesian::Cartesian(int d, int n, double x0, double xn, ...) {
+T3::Cartesian::Cartesian(int d, int n, real x0, real xn, ...) {
     Tensor::dim = d;
     Tensor::N = Tuple(d);
     push_back(Partial::Cartesian(0, n, x0, xn, this));
@@ -17,8 +17,8 @@ T3::Cartesian::Cartesian(int d, int n, double x0, double xn, ...) {
     va_list args;
     va_start(args, xn);
     FRO(i,1,d) {
-        x0 = va_arg(args, double);
-        xn = va_arg(args, double);
+        x0 = va_arg(args, real);
+        xn = va_arg(args, real);
         push_back(Partial::Cartesian(i, at(0), x0, xn, this));
         Tensor::N[i] = back().n;
     }
@@ -55,8 +55,8 @@ T3::Vector T3::Cartesian::operator&(T3::Vector x) {
     return dx;
 }
 
-double T3::Cartesian::Int(Field x, int p) {
-    double l2x = 0.;
+real T3::Cartesian::Int(Field x, int p) {
+    real l2x = 0.;
     FOR(o, size()) l2x += pow(x[o], p);
     l2x = pow(l2x/size(), 1./p);
     return l2x;

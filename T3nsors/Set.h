@@ -16,7 +16,7 @@ namespace T3 {
     class Set : public Array<Tensor> {
     public:
         Set(int,...);
-        Set operator*(const double& a) const {
+        Set operator*(const real& a) const {
             Set other = *this;
             other.expand(a);
             return other;
@@ -28,6 +28,6 @@ namespace T3 {
     };
 }
 
-T3::Set LC(double,T3::Set*,...);
+T3::Set LC(real,T3::Set*,...);
 
 #endif

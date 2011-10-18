@@ -14,11 +14,11 @@ T3::Field::Field(Tuple N, Object* parent) : N(N) {
     assign(N.Pr(), 0.);
 }
 
-T3::Field::Field(Tuple N, Array<double> L) : N(N), Array<double>(L) {
+T3::Field::Field(Tuple N, Array<real> L) : N(N), Array<real>(L) {
     
 }
 
-double& T3::Field::operator()(int a, ...) {
+real& T3::Field::operator()(int a, ...) {
 	va_list args;
 	va_start(args,a);
 	T3::Tuple o((int)N.size());
@@ -31,7 +31,7 @@ double& T3::Field::operator()(int a, ...) {
 	return at(N.map(o));
 }
 
-double T3::Field::operator()(int a, ...) const {
+real T3::Field::operator()(int a, ...) const {
 	va_list vl;
 	va_start(vl,a);
 	T3::Tuple o((int)N.size());
@@ -44,12 +44,12 @@ double T3::Field::operator()(int a, ...) const {
 	return at(N.map(o));
 }
 
-double& T3::Field::operator[](int o) {
-    return (*(Array<double>*)(this))[o];
+real& T3::Field::operator[](int o) {
+    return (*(Array<real>*)(this))[o];
 }
 
-double T3::Field::operator[](int o) const {
-    double val = (*(Array<double>*)(this))[o];
+real T3::Field::operator[](int o) const {
+    real val = (*(Array<real>*)(this))[o];
     if ( val != val ) {
         printf("Found a NaN!");
         parent->toss();
@@ -57,20 +57,20 @@ double T3::Field::operator[](int o) const {
     return val;
 }
 
-double T3::Field::L2(int p) {
-    double l2x = 0.;
+real T3::Field::L2(int p) {
+    real l2x = 0.;
     FOR(o, size()) l2x += pow(at(o), p);
     l2x = pow(l2x/size(), 1./p);
     return l2x;
 }
 
 T3::Field operator-(T3::Field x) {
-    for ( double& i : x )
+    for ( real& i : x )
         i *= -1;
     return x;
 }
 
-T3::Field operator*(const double& a, const T3::Field& x) {
+T3::Field operator*(const real& a, const T3::Field& x) {
     return x * a;
 }
 
@@ -82,12 +82,12 @@ std::ostream& operator<<(std::ostream& out, T3::Field x) {
         }
     }
     else {
-        out << *(T3::Array<double>*)(&x);
+        out << *(T3::Array<real>*)(&x);
     }
     return out;
 }
 
-T3::Field LC(double a, T3::Field* x, ...) {
+T3::Field LC(real a, T3::Field* x, ...) {
     T3::Field M = (*x) * a;
     va_list args;
     va_start(args, x);
