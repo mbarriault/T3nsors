@@ -4,3 +4,5 @@ T3nsors.xcodeproj/xcuserdata/mbarriault.xcuserdatad/*
 T3nsors.xcodeproj/project.xcworkspace/xcuserdata/mbarriault.xcuserdatad/*
 
 .DS_Store
+
+build/lib/t3py/__init__.py
