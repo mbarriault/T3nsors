@@ -21,13 +21,13 @@ T3::Stream::Stream(T3::Tensor x, std::string id, Object* parent) {
     x.t = 0;
     x.parent = this;
     push_back(x);
-    H5::H5File* file = new H5::H5File((parent->id + "/" + id + ".hdf").c_str(), H5F_ACC_TRUNC);
+    file = H5::H5File((parent->id + "/" + id + ".hdf").c_str(), H5F_ACC_TRUNC);
     
-    file->createGroup("/coords");
+    H5::Group coordgrp = file.createGroup("/coords");
     for ( Partial& D : *Del )
-        D.write(file);
-    file->createGroup("/data");
-    delete file;
+        D.write(coordgrp);
+    datagrp = file.createGroup("/data");
+    file.flush(H5F_SCOPE_LOCAL);
 }
 
 T3::Stream::~Stream() {
@@ -35,14 +35,13 @@ T3::Stream::~Stream() {
     clear();
 }
 
-T3::Stream& T3::Stream::dump(bool all) {    H5::H5File* file;
-    file = new H5::H5File((parent->id + "/" + id + ".hdf").c_str(), H5F_ACC_RDWR);
+T3::Stream& T3::Stream::dump(bool all) {
     unsigned long N = size() < nt_min ? 0 : size()-(1-all)*nt_min;
     LOOP(N) {
-        front().write(file);
+        front().write(datagrp);
         pop_front();
     }
-    delete file;
+    file.flush(H5F_SCOPE_LOCAL);
     return *this;
 }
 

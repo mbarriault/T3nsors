@@ -11,7 +11,7 @@
 
 #include <vector>
 #include <ostream>
-#include <initializer_list>
+//#include <initializer_list>
 #include "Object.h"
 
 namespace T3 {

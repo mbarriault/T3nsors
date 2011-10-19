@@ -27,6 +27,8 @@
 		6C40DDA1144CF72800529720 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C40DDA0144CF72800529720 /* main.cpp */; };
 		6C40DDA3144CF72800529720 /* WaveTest.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C40DDA2144CF72800529720 /* WaveTest.1 */; };
 		6C40DDA9144CF73C00529720 /* T3nsors.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3B75031448737B007125BA /* T3nsors.dylib */; };
+		6C478581144E59EB0050032D /* libhdf5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */; };
+		6C478582144E59EE0050032D /* libhdf5_cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */; };
 		6CA95855144C842900E50B34 /* Partial.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95854144C842900E50B34 /* Partial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA95857144C843600E50B34 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95856144C843600E50B34 /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA95859144C855B00E50B34 /* Partial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95858144C855B00E50B34 /* Partial.cpp */; };
@@ -41,7 +43,6 @@
 		6CA9586B144CAA9B00E50B34 /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA9586A144CAA9B00E50B34 /* Vector.cpp */; };
 		6CE38D85144DE3C300FB2EC1 /* libhdf5_cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */; };
 		6CE38D88144DE3DD00FB2EC1 /* libhdf5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */; };
-		6CE38D8A144DE42900FB2EC1 /* libhdf5_hl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D89144DE42900FB2EC1 /* libhdf5_hl.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,7 +132,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CE38D8A144DE42900FB2EC1 /* libhdf5_hl.dylib in Frameworks */,
 				6CE38D88144DE3DD00FB2EC1 /* libhdf5.dylib in Frameworks */,
 				6CE38D85144DE3C300FB2EC1 /* libhdf5_cpp.dylib in Frameworks */,
 			);
@@ -150,6 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C40DDA9144CF73C00529720 /* T3nsors.dylib in Frameworks */,
+				6C478581144E59EB0050032D /* libhdf5.dylib in Frameworks */,
+				6C478582144E59EE0050032D /* libhdf5_cpp.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,7 @@ namespace T3 {
         Tuple N;
         Field(Tuple,Object*parent=NULL);
         Field(Tuple,Array<real>);
-        void write(H5::H5File*,std::string,int);
+        void write(H5::Group&,std::string);
         real& operator()(int,...);
         real operator()(int,...) const;
         real& operator[](int);

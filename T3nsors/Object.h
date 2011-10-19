@@ -20,6 +20,7 @@ typedef double real;
 #include <sstream>
 #include <sys/time.h>
 #include <cmath>
+#include <unistd.h>
 
 namespace T3 {
     class Object {

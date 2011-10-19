@@ -69,14 +69,14 @@ real T3::Partial::operator()(int i) {
     return a + i*d;
 }
 
-void T3::Partial::write(H5::H5File* file) {
+void T3::Partial::write(H5::Group& grp) {
     real data[3];
     data[0] = a;
     data[1] = b;
     data[2] = d;
     hsize_t d = 3;
-    file->createDataSet( 
-                ((std::string)"/coords/" + itos(p)).c_str(), 
+    grp.createDataSet( 
+                itos(p).c_str(), 
                 H5::PredType::NATIVE_DOUBLE, 
                 H5::DataSpace(1, &d)
                        ).write(data, H5::PredType::NATIVE_DOUBLE);

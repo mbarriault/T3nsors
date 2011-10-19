@@ -39,7 +39,7 @@ namespace T3 {
         static Partial Polar(int,int,Object*parent=0);
         
         real operator()(int);
-        void write(H5::H5File*);
+        void write(H5::Group&);
         Field operator()(Field);
     };
 }

@@ -25,7 +25,7 @@ namespace T3 {
         Tensor(int,Array<Field>);
         Field& operator()(int,...);
         const Field operator()(int,...) const;
-        void write(H5::H5File*);
+        void write(H5::Group&);
         
         Tensor operator*(const real& a) const {
             Tensor other = *this;

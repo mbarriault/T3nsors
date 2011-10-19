@@ -49,13 +49,16 @@ const T3::Field T3::Tensor::operator()(int a, ...) const {
     return at(o);
 }
 
-void T3::Tensor::write(H5::H5File* file) {
+void T3::Tensor::write(H5::Group& grp) {
     std::string tid = pad(t, Stream::t(-1), Stream::t.d);
-    std::string grp = (std::string)"/data/" + tid;
-    file->createGroup(grp.c_str());
-    //file->flush(H5F_SCOPE_GLOBAL);
-    FOR(i,size())
-        at(i).write(file, grp, i);
+    if ( size() == 1 ) {
+        at(0).write(grp, tid);
+    }
+    else {
+        H5::Group tgrp = grp.createGroup(tid.c_str());
+        FOR(i,size())
+            at(i).write(tgrp, itos(i));
+    }
 }
 
 T3::Tensor operator*(const real& a, const T3::Tensor& x) {
