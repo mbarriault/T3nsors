@@ -33,7 +33,7 @@ namespace T3 {
         
         void toss() {
             if ( parent == 0 or parent == NULL )
-                printf("Tossed to root!\n");
+                printf("Tossed to root! %s\n", id.c_str());
             else
                 parent->toss();
         }

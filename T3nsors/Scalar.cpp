@@ -21,6 +21,14 @@ T3::Scalar::Scalar(Tensor x) : Tensor(x) {
     
 }
 
+real& T3::Scalar::operator[](int o) {
+    return (*(Tensor*)this)[0][o];
+}
+
+real T3::Scalar::operator[](int o) const {
+    return (*(Tensor*)this)[0][o];
+}
+
 real& T3::Scalar::operator()(int a, ...) {
 	va_list args;
 	va_start(args,a);

@@ -41,6 +41,7 @@ namespace T3 {
         real operator()(int);
         void write(H5::Group&);
         Field operator()(Field);
+        Field two(Field);
     };
 }
 

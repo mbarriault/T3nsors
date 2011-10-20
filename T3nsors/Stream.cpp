@@ -15,6 +15,10 @@ int T3::Stream::nt_max(5);
 T3::Partial T3::Stream::t(Partial::Cartesian(0, 10, 0., 1.));
 T3::Connection* T3::Stream::Del(NULL);
 
+T3::Stream::Stream() {
+    
+}
+
 T3::Stream::Stream(T3::Tensor x, std::string id, Object* parent) {
     this->parent = parent;
     this->id = id;

@@ -26,6 +26,7 @@ namespace T3 {
         H5::H5File file;
         H5::Group datagrp;
 
+        Stream();
         Stream(Tensor,std::string,Object*parent=NULL);
         ~Stream();
         Stream& dump(bool=false);

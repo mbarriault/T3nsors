@@ -18,6 +18,7 @@ namespace T3 {
         Vector operator()(Scalar);
         Scalar operator*(Vector);
         Vector operator&(Vector);
+        Scalar Lap(Scalar);
         real Int(Field,int=2);
     };
 }

@@ -20,6 +20,7 @@ namespace T3 {
         virtual Vector operator()(Scalar) = 0;
         virtual Scalar operator*(Vector) = 0;
         virtual Vector operator&(Vector) = 0;
+        virtual Scalar Lap(Scalar) = 0;
         virtual real Int(Field,int) = 0;
     };
 }

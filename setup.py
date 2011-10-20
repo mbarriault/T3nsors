@@ -6,5 +6,5 @@ core.setup(
 	author = 'Mike Barriault',
 	author_email = 'mikebarriault@me.com',
 	packages = ['t3py'],
-	scripts = []
+	scripts = ['bin/t3.3dcart.py', 'bin/t3.surface.py', 'bin/t3.wavecheck.py', 'bin/t3.l2plot.py']
 )

@@ -90,6 +90,26 @@ T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
     return cx;
 }
 
+T3::Scalar T3::Axisymmetric::Lap(T3::Scalar x) {
+    Scalar dx;
+    dx += at(0).two(x);
+    
+    Field dux = at(1).two(x);
+    FOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)*at(0)(i);
+    dx += dux;
+    
+    dux = at(0)(x);
+    FOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)/2;
+    dx += dux;
+    
+    dux = at(1)(x);
+    FOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)*at(0)(i)*sin(at(1)(j))/cos(at(1)(j));
+    dx += dux;
+    
+    dx.parent = parent;
+    return dx;
+}
+
 real T3::Axisymmetric::Int(Field x, int p) {
     real l2x = 0.;
     FOR(i, at(0).n) FOR(j, at(1).n) l2x += pow(x(i,j,0), p) * pow(at(0)(i), 2.) * sin( at(1)(j) ) * at(0).d * at(1).d;

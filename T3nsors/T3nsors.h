@@ -11,6 +11,7 @@
 #define T3nsors_
 
 #include "Object.h"
+#include "Params.h"
 #include "Array.h"
 #include "Tuple.h"
 #include "Field.h"

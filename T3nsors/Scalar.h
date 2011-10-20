@@ -17,6 +17,8 @@ namespace T3 {
         Scalar(Object*parent=NULL);
         Scalar(Field);
         Scalar(Tensor);
+        real& operator[](int);
+        real operator[](int) const;
         real& operator()(int,...);
         real operator()(int,...) const;
         operator Field();

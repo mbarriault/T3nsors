@@ -95,6 +95,7 @@ T3::Field T3::Partial::operator()(T3::Field x) {
         }
         else if ( bnd == bounds_periodic ) {
             dx[i] = (x[i+dc]-x[i+(C-1)*dc])/(2*d);
+            dx[i+(C-1)*dc] = (x[i]-x[i+(C-2)*dc])/(2*d);
         }
         else {
             dx[i] = (x[i+dc]-x[i])/d;
@@ -104,6 +105,36 @@ T3::Field T3::Partial::operator()(T3::Field x) {
             dx[i+c*dc] = (x[i+(c+1)*dc]-x[i+(c-1)*dc])/(2*d);
         else if ( C > 1 )
             dx[i] = dx[i+dc] = (x[i+dc]-x[i])/d;
+        else
+            dx[i] = 0.;
+    }
+    return dx;
+}
+
+T3::Field T3::Partial::two(T3::Field x) {
+    Field dx(x.N, x.parent);
+    int dg = x.N.Pr(p+1);
+    int dc = x.N.Pr(p);
+    int G = x.N.Pr()/dg;
+    int C = x.N[p];
+    FOR(g,G) FOR(m,dc) {
+        int i = g*dg + m;
+        if ( bnd == bounds_bounce ) {
+            dx[i] = 2*(x[i+dc]-x[i])/(d*d);
+            dx[i+(C-1)*dc] = 2*(x[i+(C-1)*dc]-x[i+(C-2)*dc])/(d*d);
+        }
+        else if ( bnd == bounds_periodic ) {
+            dx[i] = (x[i+(C-1)*dc] - 2*x[i] + x[i+dc])/(d*d);
+            dx[i+(C-1)*dc] = (x[i+(C-2)*dc] - 2*x[i+(C-1)*dc] + x[i])/(d*d);
+        }
+        else {
+            dx[i] = (x[i] - 2*x[i+dc] + x[i+2*dc])/(d*d);
+            dx[i+(C-1)*dc] = (x[i+(C-3)*dc] - 2*x[i+(C-2)*dc] + x[i+(C-1)*dc])/(d*d);
+        }
+        if ( C > 2 ) FRO(c,1,C-1)
+            dx[i+c*dc] = (x[i+(c-1)*dc] - 2*x[i+c*dc] + x[i+(c+1)*dc])/(d*d);
+        else if ( C > 1 )
+            dx[i] = dx[i+dc] = 0.;
         else
             dx[i] = 0.;
     }

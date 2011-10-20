@@ -31,9 +31,14 @@ void T3::System::Evolve() {
 
 int T3::System::Run() {
     Initialize();
-    while ( not Condition() ) Evolve();
+    while ( not Condition() ) {
+        PreEvolve();
+        Evolve();
+        PostEvolve();
+    }
+    bool c = Condition();
     Cleanup();
-    return Condition();
+    return c;
 }
 
 T3::System::operator Set() {
@@ -45,9 +50,9 @@ T3::System::operator Set() {
 
 T3::Set T3::System::Dissipate(const Set& U) {
     Set DU = U;
-    FOR(n, DU.size()) FOR(i, DU.at(n).size()) {
-        const Field& x = U.at(n).at(i);
-        Field& dx = DU.at(n).at(i);
+    FOR(n, DU.size()) FOR(j, DU.at(n).size()) {
+        const Field& x = U.at(n).at(j);
+        Field& dx = DU.at(n).at(j);
         FOR(o,dx.size()) dx[o] = 0.;
         FOR(a, Tensor::dim) {
             int dg = Tensor::N.Pr(a+1);

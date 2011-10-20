@@ -25,15 +25,20 @@ Vector& dg2 = (Vector&)dx2.at(2);
 
 #include <T3nsors/T3nsors.h>
 #include <iostream>
+#include <fstream>
 #include <cmath>
 using namespace T3;
 
 class Wave : public System {
 public:
-    Cartesian Del;
-    Partial& x;
-    Partial& y;
-    Wave(int n, real s, real T) : Del(2, n, -1., 1., -1., 1.) , x(Del[0]) , y(Del[1]) {
+    Axisymmetric Del;
+    Partial& r;
+    Partial& theta;
+    Params P;
+    Stream Bu;
+    int n;
+    timeval before;
+    Wave(int n, real s, real T) : Del(n, 1., 9.) , r(Del[0]) , theta(Del[1]) {
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::t = System::t;
         Stream::Del = &Del;
@@ -42,18 +47,29 @@ public:
         push_back(Stream(Scalar(), "u", this));
         push_back(Stream(Scalar(), "f", this));
         push_back(Stream(Vector(), "g", this));
+        
+        P["omega"] = 2*M_PI / (Del[1].b-Del[0].a);
+        
+        std::ofstream info((id + "/info.txt").c_str(), std::ios::out);
+        info << id << std::endl;
+        info << Tensor::N << std::endl;
+        info << Del << std::endl;
+        info << P << std::endl;
     }
     
     void Initialize() { SLINK
-        real w = 2*M_PI / (Del[1].b-Del[0].a);
-        
         FOR(i,Tensor::N[0]) FOR(j,Tensor::N[1]) {
-            u(i,j) = cos(w*x(i));
-            f(i,j) = -w*sin(w*x(i));
-            g(0)(i,j) = w*sin(w*x(i));
+            u(i,j) = cos(P["omega"]*r(i)) / r(i);
+            f(i,j) = P["omega"]*sin(P["omega"]*r(i)) / r(i);
+            g(0)(i,j) = -P["omega"]*sin(P["omega"]*r(i)) / r(i) - cos(P["omega"]*r(i)) / pow(r(i),2.);
         }
+        Bu = Stream(CalcBu(*this), "Bu", this);
         
-        std::cout << u << std::endl;
+        n = 0;
+    }
+    
+    Scalar CalcBu(Set x) { LINK
+        return Del.Lap(u);
     }
     
     Set RHS(Set& x) { LINK
@@ -73,6 +89,17 @@ public:
         return dx2;
     }
     
+    void PreEvolve() {
+        before = gettime();
+    }
+    
+    void PostEvolve() {
+        Bu &= CalcBu(*this);
+        
+        std::cout << "Time remaining: " << timerem(before, t.n-n) << "\r" << std::flush;
+        n++;
+    }
+    
     int Condition() {
         if ( at(0).back().t > t(-1) )
             return 1;
@@ -81,15 +108,14 @@ public:
     }
     
     void Cleanup() { SLINK
-        std::cout << u << std::endl;
+        Bu.dump(true);
     }
 };
 
 int main (int argc, const char * argv[])
 {
-    Wave(10, 0.25, 10.).Run();
+    Wave(200, 0.25, 10.).Run();
     // insert code here...
-    std::cout << "Hello, World!\n";
     return 0;
 }
 

@@ -20,7 +20,7 @@ T3::Scalar T3::Vector::operator*(const Vector& v) const {
     const Vector& u = *this;
     Scalar uv;
     FOR(i,Vector::dim) FOR(o,u.N.Pr())
-        uv[0][o] += u[i][o]*v[i][o];
+        uv[o] += u[i][o]*v[i][o];
     return uv;
 }
 
@@ -35,3 +35,13 @@ T3::Vector T3::Vector::operator&(const Vector& v) const {
     uv.parent = parent;
     return uv;
 }
+
+T3::Vector T3::Vector::operator|(const Vector& v) const {
+    const Vector& u = *this;
+    Scalar uv = u*v;
+    Scalar v2 = v*v;
+    Vector u_v;
+    FOR(a, v.size()) FOR(o, v[a].size()) u_v[a][o] = uv[o]/v2[o] * v[a][o];
+    return u_v;
+}
+

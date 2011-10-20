@@ -29,6 +29,13 @@
 		6C40DDA9144CF73C00529720 /* T3nsors.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3B75031448737B007125BA /* T3nsors.dylib */; };
 		6C478581144E59EB0050032D /* libhdf5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */; };
 		6C478582144E59EE0050032D /* libhdf5_cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */; };
+		6C478586144F12A80050032D /* Params.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C478585144F12A80050032D /* Params.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C478588144F12B40050032D /* Params.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C478587144F12B40050032D /* Params.cpp */; };
+		6C478591144F4C880050032D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6C478590144F4C880050032D /* main.cpp */; };
+		6C478593144F4C880050032D /* Pulsar.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C478592144F4C880050032D /* Pulsar.1 */; };
+		6C478597144F4C910050032D /* T3nsors.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3B75031448737B007125BA /* T3nsors.dylib */; };
+		6C478598144F4C970050032D /* libhdf5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */; };
+		6C478599144F4C990050032D /* libhdf5_cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */; };
 		6CA95855144C842900E50B34 /* Partial.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95854144C842900E50B34 /* Partial.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA95857144C843600E50B34 /* Object.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA95856144C843600E50B34 /* Object.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CA95859144C855B00E50B34 /* Partial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6CA95858144C855B00E50B34 /* Partial.cpp */; };
@@ -83,6 +90,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		6C47858B144F4C880050032D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				6C478593144F4C880050032D /* Pulsar.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +127,11 @@
 		6C40DD9D144CF72800529720 /* WaveTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WaveTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C40DDA0144CF72800529720 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6C40DDA2144CF72800529720 /* WaveTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = WaveTest.1; sourceTree = "<group>"; };
+		6C478585144F12A80050032D /* Params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Params.h; sourceTree = "<group>"; };
+		6C478587144F12B40050032D /* Params.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Params.cpp; sourceTree = "<group>"; };
+		6C47858D144F4C880050032D /* Pulsar */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pulsar; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C478590144F4C880050032D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6C478592144F4C880050032D /* Pulsar.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Pulsar.1; sourceTree = "<group>"; };
 		6CA95854144C842900E50B34 /* Partial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Partial.h; sourceTree = "<group>"; };
 		6CA95856144C843600E50B34 /* Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Object.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		6CA95858144C855B00E50B34 /* Partial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Partial.cpp; sourceTree = "<group>"; };
@@ -124,7 +146,6 @@
 		6CA9586A144CAA9B00E50B34 /* Vector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector.cpp; sourceTree = "<group>"; };
 		6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhdf5_cpp.dylib; path = usr/local/lib/libhdf5_cpp.dylib; sourceTree = SDKROOT; };
 		6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhdf5.dylib; path = usr/local/lib/libhdf5.dylib; sourceTree = SDKROOT; };
-		6CE38D89144DE42900FB2EC1 /* libhdf5_hl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libhdf5_hl.dylib; path = usr/local/lib/libhdf5_hl.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,18 +176,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C47858A144F4C880050032D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C478597144F4C910050032D /* T3nsors.dylib in Frameworks */,
+				6C478598144F4C970050032D /* libhdf5.dylib in Frameworks */,
+				6C478599144F4C990050032D /* libhdf5_cpp.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		6C3B74F81448737A007125BA = {
 			isa = PBXGroup;
 			children = (
-				6CE38D89144DE42900FB2EC1 /* libhdf5_hl.dylib */,
 				6CE38D87144DE3DD00FB2EC1 /* libhdf5.dylib */,
 				6CE38D84144DE3C300FB2EC1 /* libhdf5_cpp.dylib */,
 				6C3B75051448737B007125BA /* T3nsors */,
 				6C3B7519144873CC007125BA /* T3Test */,
 				6C40DD9F144CF72800529720 /* WaveTest */,
+				6C47858F144F4C880050032D /* Pulsar */,
 				6C3B75041448737B007125BA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -177,6 +208,7 @@
 				6C3B75031448737B007125BA /* T3nsors.dylib */,
 				6C3B7517144873CC007125BA /* T3Test */,
 				6C40DD9D144CF72800529720 /* WaveTest */,
+				6C47858D144F4C880050032D /* Pulsar */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +220,8 @@
 				6C3B75091448737B007125BA /* T3nsorsTarget.xcconfig */,
 				6C3B750A1448737B007125BA /* T3nsors.h */,
 				6CA95856144C843600E50B34 /* Object.h */,
+				6C478585144F12A80050032D /* Params.h */,
+				6C478587144F12B40050032D /* Params.cpp */,
 				6C3B75231448750B007125BA /* Array.h */,
 				6C3B752B144882FD007125BA /* Tuple.h */,
 				6C3B752D14488304007125BA /* Tuple.cpp */,
@@ -243,6 +277,15 @@
 			path = WaveTest;
 			sourceTree = "<group>";
 		};
+		6C47858F144F4C880050032D /* Pulsar */ = {
+			isa = PBXGroup;
+			children = (
+				6C478590144F4C880050032D /* main.cpp */,
+				6C478592144F4C880050032D /* Pulsar.1 */,
+			);
+			path = Pulsar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -252,6 +295,7 @@
 			files = (
 				6C3B7522144873E0007125BA /* T3nsors.h in Headers */,
 				6CA95857144C843600E50B34 /* Object.h in Headers */,
+				6C478586144F12A80050032D /* Params.h in Headers */,
 				6C3B75241448750B007125BA /* Array.h in Headers */,
 				6C3B752C144882FD007125BA /* Tuple.h in Headers */,
 				6C3B752A144882C4007125BA /* Field.h in Headers */,
@@ -324,6 +368,23 @@
 			productReference = 6C40DD9D144CF72800529720 /* WaveTest */;
 			productType = "com.apple.product-type.tool";
 		};
+		6C47858C144F4C880050032D /* Pulsar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C478594144F4C880050032D /* Build configuration list for PBXNativeTarget "Pulsar" */;
+			buildPhases = (
+				6C478589144F4C880050032D /* Sources */,
+				6C47858A144F4C880050032D /* Frameworks */,
+				6C47858B144F4C880050032D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pulsar;
+			productName = Pulsar;
+			productReference = 6C47858D144F4C880050032D /* Pulsar */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -348,6 +409,7 @@
 				6C3B75021448737B007125BA /* T3nsors */,
 				6C3B7516144873CC007125BA /* T3Test */,
 				6C40DD9C144CF72800529720 /* WaveTest */,
+				6C47858C144F4C880050032D /* Pulsar */,
 			);
 		};
 /* End PBXProject section */
@@ -368,6 +430,7 @@
 				6C40DD90144CE9CE00529720 /* Set.cpp in Sources */,
 				6C40DD94144CEAA800529720 /* Stream.cpp in Sources */,
 				6C40DD98144CF01B00529720 /* System.cpp in Sources */,
+				6C478588144F12B40050032D /* Params.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +447,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C40DDA1144CF72800529720 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C478589144F4C880050032D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C478591144F4C880050032D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +565,22 @@
 			};
 			name = Release;
 		};
+		6C478595144F4C880050032D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6C478596144F4C880050032D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -532,6 +619,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6C478594144F4C880050032D /* Build configuration list for PBXNativeTarget "Pulsar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C478595144F4C880050032D /* Debug */,
+				6C478596144F4C880050032D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

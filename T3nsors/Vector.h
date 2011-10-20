@@ -19,6 +19,7 @@ namespace T3 {
         Vector(Tensor);
         Scalar operator*(const Vector&) const;
         Vector operator&(const Vector&) const;
+        Vector operator|(const Vector&) const;
     };
 }
 
