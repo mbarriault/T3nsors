@@ -35,8 +35,8 @@ T3::Partial T3::Partial::Cartesian(int p, int n, real a, real b, Object* parent)
     return D;
 }
 
-T3::Partial T3::Partial::Cartesian(int p, Partial D, real a, real b, Object* parent) {
-    Partial E(p, a, D.d, b, parent);
+T3::Partial T3::Partial::Cartesian(int p, real d, real a, real b, Object* parent) {
+    Partial E(p, a, d, b, parent);
     E.n += 1;
     E.bnd = bounds_edge;
     return E;

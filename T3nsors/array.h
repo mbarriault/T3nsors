@@ -11,6 +11,7 @@
 
 #include <vector>
 #include <ostream>
+#include <cstdarg>
 //#include <initializer_list>
 #include "Object.h"
 

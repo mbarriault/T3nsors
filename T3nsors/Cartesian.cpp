@@ -19,7 +19,7 @@ T3::Cartesian::Cartesian(int d, int n, real x0, real xn, ...) {
     FRO(i,1,d) {
         x0 = va_arg(args, real);
         xn = va_arg(args, real);
-        push_back(Partial::Cartesian(i, at(0), x0, xn, this));
+        push_back(Partial::Cartesian(i, at(0).d, x0, xn, this));
         Tensor::N[i] = back().n;
     }
     va_end(args);

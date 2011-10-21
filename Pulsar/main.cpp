@@ -43,14 +43,14 @@ public:
     Stream EB, divB;
     Stream S;
     
-    Pulsar(int n, real s, int rot, Params P) : P(P), Del(Axisymmetric(n, 1., 9.)), r(Del[0]) , theta(Del[1]) {
+    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., 2.)), r(Del[0]) , theta(Del[1]) {
         real T = rot*2*M_PI/P["Omega"];
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::t = System::t;
         Stream::Del = &Del;
-        id = mkdir((std::string)"pulsar" + timecoord());
+        id = mkdir(iid + timecoord());
         epsilon = 0.5;
-        c = P["alpha"]/(t(-1) * P["mu"]*P["mu"]/pow(r(0),6.) * (1 + pow(P["omega"]*r(0), 2.) ) );
+        c = P["alpha"]/(t(-1) * P["mu"]*P["mu"]/pow(r(0),6.) * (1 + pow(P["Omega"]*r(0), 2.) ) );
         push_back(Stream(Scalar(), "u", this));
         push_back(Stream(Vector(), "E", this));
         push_back(Stream(Vector(), "B", this));
@@ -58,6 +58,7 @@ public:
         std::ofstream info((id + "/info.txt").c_str(), std::ios::out);
         info << id << std::endl;
         info << Tensor::N << std::endl;
+        info << t << std::endl;
         info << Del << std::endl;
         info << P << std::endl;
     }
@@ -197,15 +198,21 @@ public:
     }
 };
 
+Params PulsarParams(real k, real mu, real Omega, real alpha, real zeta) {
+    Params P;
+    P["k"] = k;
+    P["mu"] = mu;
+    P["Omega"] = Omega;
+    P["alpha"] = alpha;
+    P["zeta"] = zeta;
+    return P;
+}
+
 int main (int argc, const char * argv[])
 {
-    Params P;
-    P["zeta"] = 0.;
-    P["alpha"] = 100.;
-    P["k"] = 1.;
-    P["Omega"] = 0.2;
-    P["mu"] = 1.;
-    Pulsar(30, 0.25, 10, P).Run();
+    real Omegas[] = {0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5};
+    for ( real& Omega : Omegas )
+        Pulsar(48, 0.125, 1, "pulsar-dynamic", PulsarParams(1., 1., Omega, 100., 0.)).Run();
     // insert code here...
     return 0;
 }

@@ -33,7 +33,7 @@ namespace T3 {
         Partial(int,real,real,real,Object*parent=0); // a, d, b
         
         static Partial Cartesian(int,int,real,real,Object*parent=0);
-        static Partial Cartesian(int,Partial,real,real,Object*parent=0);
+        static Partial Cartesian(int,real,real,real,Object*parent=0);
         static Partial Azimuth(int,int,Object*parent=0);
         static Partial Azimuth(int,Partial,Object*parent=0);
         static Partial Polar(int,int,Object*parent=0);
