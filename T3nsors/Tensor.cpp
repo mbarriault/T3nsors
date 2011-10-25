@@ -49,8 +49,8 @@ const T3::Field T3::Tensor::operator()(int a, ...) const {
     return at(o);
 }
 
-void T3::Tensor::write(H5::Group& grp) {
-    std::string tid = pad(t, Stream::t(-1), Stream::t.d);
+void T3::Tensor::write(H5::Group& grp, Partial T) {
+    std::string tid = pad(t, T(-1), T.d);
     if ( size() == 1 ) {
         at(0).write(grp, tid);
     }

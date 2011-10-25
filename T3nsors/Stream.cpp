@@ -12,7 +12,6 @@
 
 int T3::Stream::nt_min(3);
 int T3::Stream::nt_max(5);
-T3::Partial T3::Stream::t(Partial::Cartesian(0, 10, 0., 1.));
 T3::Connection* T3::Stream::Del(NULL);
 
 T3::Stream::Stream() {
@@ -42,7 +41,7 @@ T3::Stream::~Stream() {
 T3::Stream& T3::Stream::dump(bool all) {
     unsigned long N = size() < nt_min ? 0 : size()-(1-all)*nt_min;
     LOOP(N) {
-        front().write(datagrp);
+        front().write(datagrp, ((System*)parent)->t);
         pop_front();
     }
     file.flush(H5F_SCOPE_LOCAL);
@@ -65,7 +64,7 @@ T3::Stream& T3::Stream::operator&=(const T3::Tensor& x) {
     if ( size() > 0 )
         t0 = back().t;
     push_back(x);
-    back().t = t0 + t.d;
+    back().t = t0 + ((System*)parent)->t.d;
     back().parent = this;
     return *this;
 }

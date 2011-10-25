@@ -43,10 +43,9 @@ public:
     Stream EB, divB;
     Stream S;
     
-    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., 2.)), r(Del[0]) , theta(Del[1]) {
+    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., 0.5/P["Omega"])), r(Del[0]) , theta(Del[1]) {
         real T = rot*2*M_PI/P["Omega"];
         System::t = Partial(0, 0., s*Del[0].d, T, this);
-        Stream::t = System::t;
         Stream::Del = &Del;
         id = mkdir(iid + timecoord());
         epsilon = 0.5;
@@ -212,7 +211,7 @@ int main (int argc, const char * argv[])
 {
     real Omegas[] = {0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5};
     for ( real& Omega : Omegas )
-        Pulsar(48, 0.125, 1, "pulsar-dynamic", PulsarParams(1., 1., Omega, 100., 0.)).Run();
+        Pulsar(16, 0.125, 1, "pulsar-dynamic", PulsarParams(1., 1., Omega, 100., 0.)).Run();
     // insert code here...
     return 0;
 }

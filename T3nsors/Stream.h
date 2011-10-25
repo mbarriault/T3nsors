@@ -21,7 +21,6 @@ namespace T3 {
     public:
         static int nt_min;
         static int nt_max;
-        static Partial t;
         static Connection* Del;
         H5::H5File file;
         H5::Group datagrp;

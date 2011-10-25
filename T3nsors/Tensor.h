@@ -10,6 +10,7 @@
 #define T3nsors_Tensor_h
 
 #include "Field.h"
+#include "Partial.h"
 #include <H5Cpp.h>
 
 namespace T3 {
@@ -25,7 +26,7 @@ namespace T3 {
         Tensor(int,Array<Field>);
         Field& operator()(int,...);
         const Field operator()(int,...) const;
-        void write(H5::Group&);
+        void write(H5::Group&, Partial);
         
         Tensor operator*(const real& a) const {
             Tensor other = *this;
