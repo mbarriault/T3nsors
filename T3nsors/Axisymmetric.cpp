@@ -13,18 +13,18 @@ T3::Axisymmetric::Axisymmetric(int n, real r0, real rn) {
     Tensor::dim = 3;
     Tensor::N = Tuple(3);
 
-    Tensor::N[0] = n+1;
+/*    Tensor::N[0] = n+1;
     push_back(Partial::Cartesian(0, n, r0, rn, this));
     push_back(Partial::Azimuth(1, back(), this));
     Tensor::N[1] = back().n;
     push_back(Partial::Polar(2, 1, this));
-    Tensor::N[2] = 1;
+    Tensor::N[2] = 1;*/
     
-/*    Partial Del = Partial::Azimuth(1, n, this);
+    Partial Del = Partial::Azimuth(1, n, this);
     push_back(Partial::Cartesian(0, r0*Del.d, r0, rn, this));
     push_back(Del);
     push_back(Partial::Polar(2, 1, this));
-    FOR(a,3) Tensor::N[a] = at(a).n;*/
+    FOR(a,3) Tensor::N[a] = at(a).n;
 }
 
 T3::Vector T3::Axisymmetric::operator()(T3::Scalar x) {

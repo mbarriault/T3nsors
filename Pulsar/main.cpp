@@ -29,6 +29,8 @@ Vector& dB2 = (Vector&)dx2.at(2);
 #include <cmath>
 using namespace T3;
 
+Params PulsarParams(real, real, real, real, real);
+
 class Pulsar : public System {
 public:
     Axisymmetric Del;
@@ -43,7 +45,7 @@ public:
     Stream EB, divB;
     Stream S;
     
-    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., 0.5/P["Omega"])), r(Del[0]) , theta(Del[1]) {
+    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., 2./P["Omega"])), r(Del[0]) , theta(Del[1]) {
         real T = rot*2*M_PI/P["Omega"];
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::Del = &Del;
@@ -89,11 +91,13 @@ public:
         if ( P["zeta"] > 0 ) {
             Vector E_B = E|B;
             E = LC(1., &E, -P["zeta"], &E_B, NULL);
+//            E = E - E|B;
+            // Counter - count number of times above "threshold value"
         }
         Scalar B2 = B*B;
         Scalar E2 = E*E;
         Scalar V = B2-E2;
-        FOR(o,Tensor::N.Pr()) if ( V[o] < 0 ) FOR(a,3) E(a)[o] *= sqrt(B2[o]/E2[o]);
+        FOR(o,Tensor::N.Pr()) if ( V[o] < 0 ) FOR(a,3) E(a)[o] *= 0.99*sqrt(B2[o]/E2[o]);
         return x;
     }
     
@@ -108,7 +112,7 @@ public:
         Vector S = CalcS(x);
         Scalar B2 = B*B;
         Vector J;
-        FOR(a,3) FOR(o,Tensor::N.Pr()) J(a)[o] = 4*M_PI*rho[o]/B2[o]*S(a)[o];
+        FOR(a,3) FOR(o,Tensor::N.Pr()) J(a)[o] = 4*M_PI*rho[o]/(B2[o]+1e-12)*S(a)[o];
         return J;
     }
     
@@ -209,9 +213,8 @@ Params PulsarParams(real k, real mu, real Omega, real alpha, real zeta) {
 
 int main (int argc, const char * argv[])
 {
-    real Omegas[] = {0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5};
-    for ( real& Omega : Omegas )
-        Pulsar(16, 0.125, 1, "pulsar-dynamic", PulsarParams(1., 1., Omega, 100., 0.)).Run();
+    for ( real Omega = 0.2; Omega < 0.61; Omega += 0.05 )
+        Pulsar(24, 0.125, 1, "pulsar-dynamic", PulsarParams(1., 1., Omega, 100., 0.)).Run();
     // insert code here...
     return 0;
 }
