@@ -60,3 +60,9 @@ T3::Scalar::operator Field() {
     x.parent = parent;
     return x;
 }
+
+T3::Scalar::operator const Field() const {
+    Field x = at(0);
+    x.parent = parent;
+    return x;
+}

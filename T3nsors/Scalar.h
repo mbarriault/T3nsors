@@ -22,7 +22,8 @@ namespace T3 {
         real& operator()(int,...);
         real operator()(int,...) const;
         operator Field();
-        Scalar& operator+=(Field x) {
+        operator const Field() const;
+        Scalar& operator+=(const Field& x) {
             at(0).increment(x);
             return *this;
         }

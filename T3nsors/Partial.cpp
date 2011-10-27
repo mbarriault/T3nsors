@@ -64,9 +64,8 @@ T3::Partial T3::Partial::Polar(int p, int n, Object* parent) {
     return D;
 }
 
-real T3::Partial::operator()(int i) {
-    i = mod(i, n);
-    return a + i*d;
+real T3::Partial::operator()(int i) const {
+    return a + mod(i, n)*d;
 }
 
 void T3::Partial::write(H5::Group& grp) {
@@ -82,7 +81,7 @@ void T3::Partial::write(H5::Group& grp) {
                        ).write(data, H5::PredType::NATIVE_DOUBLE);
 }
 
-T3::Field T3::Partial::operator()(T3::Field x) {
+T3::Field T3::Partial::operator()(const T3::Field& x) const {
     Field dx(x.N, x.parent);
     int dg = x.N.Pr(p+1);
     int dc = x.N.Pr(p);
@@ -111,7 +110,7 @@ T3::Field T3::Partial::operator()(T3::Field x) {
     return dx;
 }
 
-T3::Field T3::Partial::two(T3::Field x) {
+T3::Field T3::Partial::two(const T3::Field& x) const {
     Field dx(x.N, x.parent);
     int dg = x.N.Pr(p+1);
     int dc = x.N.Pr(p);

@@ -20,7 +20,7 @@ namespace T3 {
         int Si(int=-1) const;
         int Pr(int=-1) const;
         Tuple map(int) const;
-        int map(Tuple) const;
+        int map(const Tuple&) const;
     };
 }
 

@@ -25,17 +25,17 @@ T3::Cartesian::Cartesian(int d, int n, real x0, real xn, ...) {
     va_end(args);
 }
 
-T3::Vector T3::Cartesian::operator()(T3::Scalar x) {
+T3::Vector T3::Cartesian::operator()(const T3::Scalar& x) const {
     Vector dx;
     FOR(i, Tensor::dim) {
-        dx[i] = at(i)((Field)x);
+        dx[i] = at(i)((const Field)x);
     }
     dx.parent = x.parent;
     dx.fix();
     return dx;
 }
 
-T3::Scalar T3::Cartesian::operator*(T3::Vector x) {
+T3::Scalar T3::Cartesian::operator*(const T3::Vector& x) const {
     Scalar dx;
     FOR(i, Tensor::dim) {
         dx += at(i)(x[i]);
@@ -45,7 +45,7 @@ T3::Scalar T3::Cartesian::operator*(T3::Vector x) {
     return dx;
 }
 
-T3::Vector T3::Cartesian::operator&(T3::Vector x) {
+T3::Vector T3::Cartesian::operator&(const T3::Vector& x) const {
     Vector dx;
     FOR(i, Tensor::dim) {
         dx[i] = at(mod(i+1,Tensor::dim))(x[i+2]) - at(mod(i+2,Tensor::dim))(x[i+1]);
@@ -55,15 +55,15 @@ T3::Vector T3::Cartesian::operator&(T3::Vector x) {
     return dx;
 }
 
-T3::Scalar T3::Cartesian::Lap(T3::Scalar x) {
+T3::Scalar T3::Cartesian::Lap(const T3::Scalar& x) const {
     Scalar dx;
     FOR(i, Tensor::dim)
-        dx += at(i).two(x);
+        dx += at(i).two((const Field)x);
     dx.parent = x.parent;
     return dx;
 }
 
-real T3::Cartesian::Int(Field x, int p) {
+real T3::Cartesian::Int(const Field& x, int p) const {
     real l2x = 0.;
     FOR(o, size()) l2x += pow(x[o], p);
     l2x = pow(l2x/size(), 1./p);

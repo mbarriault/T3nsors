@@ -34,7 +34,7 @@ int T3::Tuple::Pr(int a) const {
 	return p;
 }
 
-int T3::Tuple::map(T3::Tuple O) const {
+int T3::Tuple::map(const T3::Tuple& O) const {
 	int o = 0;
 	FOR(i,size()) {
         int A = mod(O[i], at(i));

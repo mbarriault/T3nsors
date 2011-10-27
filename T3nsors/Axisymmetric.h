@@ -15,11 +15,11 @@ namespace T3 {
     class Axisymmetric : public Connection {
     public:
         Axisymmetric(int,real,real);
-        Vector operator()(Scalar);
-        Scalar operator*(Vector);
-        Vector operator&(Vector);
-        Scalar Lap(Scalar);
-        real Int(Field,int=2);
+        Vector operator()(const Scalar&) const;
+        Scalar operator*(const Vector&) const;
+        Vector operator&(const Vector&) const;
+        Scalar Lap(const Scalar&) const;
+        real Int(const Field&,int=2) const;
     };
 }
 

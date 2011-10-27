@@ -38,10 +38,10 @@ namespace T3 {
         static Partial Azimuth(int,Partial,Object*parent=0);
         static Partial Polar(int,int,Object*parent=0);
         
-        real operator()(int);
+        real operator()(int) const;
         void write(H5::Group&);
-        Field operator()(Field);
-        Field two(Field);
+        Field operator()(const Field&) const;
+        Field two(const Field&) const;
     };
 }
 

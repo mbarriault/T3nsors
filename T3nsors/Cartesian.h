@@ -17,11 +17,11 @@ namespace T3 {
     class Cartesian : public Connection {
     public:
         Cartesian(int,int,real,real,...);
-        Vector operator()(Scalar);
-        Scalar operator*(Vector);
-        Vector operator&(Vector);
-        Scalar Lap(Scalar);
-        real Int(Field,int);
+        Vector operator()(const Scalar&) const;
+        Scalar operator*(const Vector&) const;
+        Vector operator&(const Vector&) const;
+        Scalar Lap(const Scalar&) const;
+        real Int(const Field&,int) const;
     };
 }
 

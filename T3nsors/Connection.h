@@ -17,11 +17,11 @@
 namespace T3 {
     class Connection : public Array<Partial> {
     public:
-        virtual Vector operator()(Scalar) = 0;
-        virtual Scalar operator*(Vector) = 0;
-        virtual Vector operator&(Vector) = 0;
-        virtual Scalar Lap(Scalar) = 0;
-        virtual real Int(Field,int) = 0;
+        virtual Vector operator()(const Scalar&) const = 0;
+        virtual Scalar operator*(const Vector&) const = 0;
+        virtual Vector operator&(const Vector&) const = 0;
+        virtual Scalar Lap(const Scalar&) const = 0;
+        virtual real Int(const Field&,int) const = 0;
     };
 }
 

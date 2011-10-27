@@ -27,7 +27,7 @@ T3::Axisymmetric::Axisymmetric(int n, real r0, real rn) {
     FOR(a,3) Tensor::N[a] = at(a).n;
 }
 
-T3::Vector T3::Axisymmetric::operator()(T3::Scalar x) {
+T3::Vector T3::Axisymmetric::operator()(const T3::Scalar& x) const {
     Vector dx;
     dx[0] = at(0)((Field)x);
     dx[1] = at(1)((Field)x);
@@ -37,7 +37,7 @@ T3::Vector T3::Axisymmetric::operator()(T3::Scalar x) {
     return dx;
 }
 
-T3::Scalar T3::Axisymmetric::operator*(T3::Vector x) {
+T3::Scalar T3::Axisymmetric::operator*(const T3::Vector& x) const {
     Scalar dx;
     dx += at(0)(x[0]);
 
@@ -58,7 +58,7 @@ T3::Scalar T3::Axisymmetric::operator*(T3::Vector x) {
     return dx;
 }
 
-T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
+T3::Vector T3::Axisymmetric::operator&(const T3::Vector& x) const {
     Vector cx;
     
     Field dx = at(1)(x[2]);
@@ -83,21 +83,23 @@ T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
     PFOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= -at(0)(i);
     cx[2] += dx;
     
-    PFOR(i,x.N[0]) FOR(j,x.N[1]) x[2](i,j,0) /= at(0)(i);
-    cx[1] += -x[2];
+    T3::Vector y = x;
     
-    PFOR(i,x.N[0]) FOR(j,x.N[1]) x[2](i,j,0) /= sin( at(1)(j) ) / cos( at(1)(j) );
-    cx[0] += x[2];
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) y[2](i,j,0) /= at(0)(i);
+    cx[1] += -y[2];
     
-    PFOR(i,x.N[0]) FOR(j,x.N[1]) x[1](i,j,0) /= at(0)(i);
-    cx[2] += x[1];
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) y[2](i,j,0) /= sin( at(1)(j) ) / cos( at(1)(j) );
+    cx[0] += y[2];
+    
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) y[1](i,j,0) /= at(0)(i);
+    cx[2] += y[1];
     
     cx.parent = x.parent;
     cx.fix();
     return cx;
 }
 
-T3::Scalar T3::Axisymmetric::Lap(T3::Scalar x) {
+T3::Scalar T3::Axisymmetric::Lap(const T3::Scalar& x) const {
     Scalar dx;
     dx += at(0).two(x);
     
@@ -118,7 +120,7 @@ T3::Scalar T3::Axisymmetric::Lap(T3::Scalar x) {
     return dx;
 }
 
-real T3::Axisymmetric::Int(Field x, int p) {
+real T3::Axisymmetric::Int(const Field& x, int p) const {
     real l2x = 0.;
     FOR(i, at(0).n) FOR(j, at(1).n) l2x += pow(x(i,j,0), p) * pow(at(0)(i), 2.) * sin( at(1)(j) ) * at(0).d * at(1).d;
     l2x *= 2*M_PI;
