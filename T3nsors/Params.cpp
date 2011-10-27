@@ -9,8 +9,12 @@
 #include "Params.h"
 
 std::ostream& operator<<(std::ostream& out, T3::Params P) {
-    for ( const std::pair<std::string, real>& p : P )
-        out << p.first << "\t = " << p.second << std::endl;
+    T3::Params::iterator p;
+    for (p = P.begin(); p != P.end(); ++p) {
+        out << p->first << "\t = " << p->second << std::endl;
+    }
+//    for ( const std::pair<std::string, real>& p : P )
+//        out << p.first << "\t = " << p.second << std::endl;
     return out;
 }
 

@@ -74,8 +74,10 @@ real T3::Field::L2(int p) {
 }
 
 T3::Field operator-(T3::Field x) {
-    for ( real& i : x )
-        i *= -1;
+    PFOR(i,x.size())
+        x[i] *= -1;
+//    for ( real& i : x )
+//        i *= -1;
     return x;
 }
 

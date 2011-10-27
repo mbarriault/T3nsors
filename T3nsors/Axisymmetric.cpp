@@ -130,8 +130,10 @@ real T3::Axisymmetric::Int(const Field& x, int p) const {
 }
 
 std::ostream& operator<<(std::ostream& out, T3::Axisymmetric x) {
-    for ( T3::Partial& D : x )
-        out << D << "\n";
+    FOR(i,x.size())
+        out << x[i] << std::endl;
+//    for ( T3::Partial& D : x )
+//        out << D << "\n";
     return out;
 }
 

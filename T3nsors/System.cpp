@@ -43,8 +43,10 @@ int T3::System::Run() {
 
 T3::System::operator Set() {
     Set s(0);
-    for ( Stream& S : *this )
-        s.push_back(S.back());
+    FOR(i,size())
+        s.push_back(at(i).back());
+//    for ( Stream& S : *this )
+//        s.push_back(S.back());
     return s;
 }
 

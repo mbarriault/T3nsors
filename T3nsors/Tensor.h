@@ -48,8 +48,10 @@ namespace T3 {
         Tensor_BINARY(add, +);
         Tensor_BINARY(subtract, -);
         void fix() {
-            for  ( Field& F : *this )
-                F.parent = this;
+            FOR(i,size())
+                at(i).parent = this;
+//            for  ( Field& F : *this )
+//                F.parent = this;
         }
     };
 }

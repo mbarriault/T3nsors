@@ -27,8 +27,10 @@ T3::Stream::Stream(T3::Tensor x, std::string id, Object* parent) {
     file = H5::H5File((parent->id + "/" + id + ".hdf").c_str(), H5F_ACC_TRUNC);
     
     H5::Group coordgrp = file.createGroup("/coords");
-    for ( Partial& D : *Del )
-        D.write(coordgrp);
+    FOR(i,Del->size())
+        Del->at(i).write(coordgrp);
+//    for ( Partial& D : *Del )
+//        D.write(coordgrp);
     datagrp = file.createGroup("/data");
     file.flush(H5F_SCOPE_LOCAL);
 }

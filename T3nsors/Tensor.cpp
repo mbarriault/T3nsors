@@ -73,8 +73,10 @@ T3::Tensor LC(real a, T3::Tensor* x, ...) {
 }
 
 std::ostream& operator<<(std::ostream& out, T3::Tensor x) {
-    for ( T3::Field& f : x )
-        out << f << "\n";
+    FOR(i,x.size())
+        out << x[i] << std::endl;
+//    for ( T3::Field& f : x )
+//        out << f << "\n";
     return out;
 }
 

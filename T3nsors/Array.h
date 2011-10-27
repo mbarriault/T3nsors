@@ -47,8 +47,11 @@ namespace T3 {
         }
         
         Array<T>& expand(const real& a) {
-            for ( T& t : *this )
-                t *= a;
+            PFOR(i,this->size())
+                (*this)[i] *= a;
+// Range-based for loop
+//            for ( T& t : *this )
+//                t *= a;
             return *this;
         }
     };
@@ -56,8 +59,10 @@ namespace T3 {
 
 template<class T>
 std::ostream& operator<<(std::ostream& out, T3::Array<T>& L) {
-    for ( T& t : L )
-        out << t << "\t";
+    FOR(i,L.size())
+        out << L[i] << "\t";
+//    for ( T& t : L )
+//        out << t << "\t";
     out << std::flush;
     return out;
 }
