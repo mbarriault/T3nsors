@@ -101,7 +101,7 @@ T3::Field T3::Partial::operator()(T3::Field x) {
             dx[i] = (x[i+dc]-x[i])/d;
             dx[i+(C-1)*dc] = (x[i+(C-1)*dc]-x[i+(C-2)*dc])/d;
         }
-        if ( C > 2 ) FRO(c,1,C-1)
+        if ( C > 2 ) PFRO(c,1,C-1)
             dx[i+c*dc] = (x[i+(c+1)*dc]-x[i+(c-1)*dc])/(2*d);
         else if ( C > 1 )
             dx[i] = dx[i+dc] = (x[i+dc]-x[i])/d;
@@ -131,7 +131,7 @@ T3::Field T3::Partial::two(T3::Field x) {
             dx[i] = (x[i] - 2*x[i+dc] + x[i+2*dc])/(d*d);
             dx[i+(C-1)*dc] = (x[i+(C-3)*dc] - 2*x[i+(C-2)*dc] + x[i+(C-1)*dc])/(d*d);
         }
-        if ( C > 2 ) FRO(c,1,C-1)
+        if ( C > 2 ) PFRO(c,1,C-1)
             dx[i+c*dc] = (x[i+(c-1)*dc] - 2*x[i+c*dc] + x[i+(c+1)*dc])/(d*d);
         else if ( C > 1 )
             dx[i] = dx[i+dc] = 0.;

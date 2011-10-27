@@ -42,15 +42,15 @@ T3::Scalar T3::Axisymmetric::operator*(T3::Vector x) {
     dx += at(0)(x[0]);
 
     Field dxu = at(1)(x[1]);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dxu(i,j,0) /= at(0)(i);
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dxu(i,j,0) /= at(0)(i);
     dx += dxu;
     
     Field xu = x[0];
-    FOR(i,x.N[0]) FOR(j,x.N[1]) xu(i,j,0) /= at(0)(i) / 2.;
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) xu(i,j,0) /= at(0)(i) / 2.;
     dx += xu;
     
     xu = x[1];
-    FOR(i,x.N[0]) FOR(j,x.N[1]) xu(i,j,0) /= at(0)(i) * sin( at(1)(j) ) / cos( at(1)(j) );
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) xu(i,j,0) /= at(0)(i) * sin( at(1)(j) ) / cos( at(1)(j) );
     dx += xu;
     
     dx.parent = x.parent;
@@ -62,15 +62,15 @@ T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
     Vector cx;
     
     Field dx = at(1)(x[2]);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= at(0)(i);
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= at(0)(i);
     cx[0] += dx;
     
     dx = at(2)(x[1]);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= -at(0)(i) * sin( at(1)(j) );
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= -at(0)(i) * sin( at(1)(j) );
     cx[0] += dx;
     
     dx = at(2)(x[0]);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= at(0)(i) * sin( at(1)(j) );
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= at(0)(i) * sin( at(1)(j) );
     cx[1] += dx;
     
     dx = -at(0)(x[2]);
@@ -80,16 +80,16 @@ T3::Vector T3::Axisymmetric::operator&(T3::Vector x) {
     cx[2] += dx;
     
     dx = at(1)(x[0]);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= -at(0)(i);
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dx(i,j,0) /= -at(0)(i);
     cx[2] += dx;
     
-    FOR(i,x.N[0]) FOR(j,x.N[1]) x[2](i,j,0) /= at(0)(i);
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) x[2](i,j,0) /= at(0)(i);
     cx[1] += -x[2];
     
-    FOR(i,x.N[0]) FOR(j,x.N[1]) x[2](i,j,0) /= sin( at(1)(j) ) / cos( at(1)(j) );
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) x[2](i,j,0) /= sin( at(1)(j) ) / cos( at(1)(j) );
     cx[0] += x[2];
     
-    FOR(i,x.N[0]) FOR(j,x.N[1]) x[1](i,j,0) /= at(0)(i);
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) x[1](i,j,0) /= at(0)(i);
     cx[2] += x[1];
     
     cx.parent = x.parent;
@@ -102,18 +102,19 @@ T3::Scalar T3::Axisymmetric::Lap(T3::Scalar x) {
     dx += at(0).two(x);
     
     Field dux = at(1).two(x);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)*at(0)(i);
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)*at(0)(i);
     dx += dux;
     
     dux = at(0)(x);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)/2;
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)/2;
     dx += dux;
     
     dux = at(1)(x);
-    FOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)*at(0)(i)*sin(at(1)(j))/cos(at(1)(j));
+    PFOR(i,x.N[0]) FOR(j,x.N[1]) dux(i,j,0) /= at(0)(i)*at(0)(i)*sin(at(1)(j))/cos(at(1)(j));
     dx += dux;
     
     dx.parent = parent;
+    dx.fix();
     return dx;
 }
 

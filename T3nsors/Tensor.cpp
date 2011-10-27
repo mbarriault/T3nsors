@@ -24,7 +24,7 @@ T3::Tensor::Tensor(int rank, Object* parent) : rank(rank) {
 }
 
 T3::Tensor::Tensor(int rank, Array<Field> L) : rank(rank), Array<Field>(L) {
-    
+    this->parent = L.parent;
 }
 
 T3::Field& T3::Tensor::operator()(int a, ...) {
@@ -77,3 +77,4 @@ std::ostream& operator<<(std::ostream& out, T3::Tensor x) {
         out << f << "\n";
     return out;
 }
+

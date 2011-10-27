@@ -22,18 +22,17 @@ namespace T3 {
         Array(Object* parent=0) : std::vector<T>() , Object(parent) {}
 //        Array(std::initializer_list<T> init) : std::Vector<T>(init) {}
         T& operator[](int i) {
-            i = mod(i, (int)this->size());
-            return this->at(i);
+            return this->at( mod(i, (int)this->size()) );
         }
         
         const T operator[](int i) const {
-            i = (int)((i % this->size() + this->size()) % this->size());
-            return this->at(i);
+            return this->at( mod(i, (int)this->size()) );
         }
         
 #define BINARY(name,op) \
         Array<T> name(const Array<T>& other) { \
             Array<T> added = *this; \
+            _Pragma("omp parallel for") \
             for ( int i=0; i<this->size(); i++ ) \
                 added[i] = added[i] op other[i]; \
             return added; \
@@ -42,12 +41,13 @@ namespace T3 {
         BINARY(subtract,-);
         
         Array<T>& increment(const Array<T>& other) {
-            FOR(i,this->size())
+            PFOR(i,this->size())
                 (*this)[i] += other[i];
             return *this;
         }
         
         Array<T>& expand(const real& a) {
+#pragma omp parallel for
             for ( T& t : *this )
                 t *= a;
             return *this;
@@ -61,18 +61,6 @@ std::ostream& operator<<(std::ostream& out, T3::Array<T>& L) {
         out << t << "\t";
     out << std::flush;
     return out;
-}
-
-#define _LC_PROTOTYPE(type) \
-type _LC(real a, type* x, ...) { \
-    type M = a * (*x); \
-    va_list args; \
-    va_start(args, x); \
-    while ( (a = va_arg(args, real)) ) { \
-        x = va_arg(args, type*); \
-        M += a * (*x); \
-    } \
-    return M; \
 }
 
 template<class T>
@@ -92,7 +80,5 @@ T _LC(real a, T* x, ...) {
     va_start(args, x);
     return _LC<T>(a, M, args);
 }
-
-#define LC_SHORTCUT(type,...) _LC<type>(__VA_ARGS__, NULL);
 
 #endif

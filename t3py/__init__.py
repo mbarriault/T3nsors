@@ -53,10 +53,6 @@ class hdf:
 			f = self[i][c]
 		shape = f.shape[0:1]
 		s = numpy.zeros(shape)
-		print f.shape,
-		for x in self.x:
-			print x.shape,
-		print
 		for j in xrange(f.shape[1]):
 			for k in xrange(f.shape[2]):
 				s += f[:,j,k] * (self.x[0])**2 * numpy.sin(self.x[1][j])

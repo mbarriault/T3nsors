@@ -29,7 +29,7 @@ Vector& dB2 = (Vector&)dx2.at(2);
 #include <cmath>
 using namespace T3;
 
-Params PulsarParams(real, real, real, real, real);
+Params PulsarParams(real, real, real, real, real, real);
 
 class Pulsar : public System {
 public:
@@ -45,7 +45,7 @@ public:
     Stream EB, divB;
     Stream S;
     
-    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., 2./P["Omega"])), r(Del[0]) , theta(Del[1]) {
+    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., P["RLC"]/P["Omega"])), r(Del[0]) , theta(Del[1]) {
         real T = rot*2*M_PI/P["Omega"];
         System::t = Partial(0, 0., s*Del[0].d, T, this);
         Stream::Del = &Del;
@@ -80,7 +80,7 @@ public:
     }
     
     Set Source(Set x, int in=1) { LINK
-        FRO(i,0,in) FOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
+        PFRO(i,0,in) FOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
             B(0)(i,j,k) = 2*P["mu"]*cos(theta(j)) / pow(r(i),3.);
             B(1)(i,j,k) = P["mu"]*sin(theta(j)) / pow(r(i),3.);
             B(2)(i,j,k) = 0.;
@@ -143,7 +143,7 @@ public:
         Vector F2;
         if ( c > 0 ) {
             Scalar EB = CalcEB(x);
-            FOR(a,3) FOR(o, Tensor::N.Pr() ) {
+            FOR(a,3) PFOR(o, Tensor::N.Pr() ) {
                 F1(a)[o] = fabs(EB[o]) * E(a)[o] + EB[o] * B(a)[o];
                 F2(a)[o] = fabs(EB[o]) * B(a)[o] + EB[o] * E(a)[o];
             }
@@ -154,7 +154,15 @@ public:
         dB = LC(-1., &curlE, 1., &gradPsi, -c, &F2, NULL);
         
         Set dx2 = dx; D2LINK
-        FOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
+        PFOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
+            dPsi2(0,j,k) = 0.5*( dPsi(0,j,k) + dB(0)(0,j,k) );
+            dE2(1)(0,j,k) = 0.5*( dE(1)(0,j,k) - dB(2)(0,j,k) );
+            dE2(2)(0,j,k) = 0.5*( dE(2)(0,j,k) + dB(1)(0,j,k) );
+            dB2(0)(0,j,k) = 0.5*( dB(0)(0,j,k) + dPsi(0,j,k) );
+            dB2(1)(0,j,k) = 0.5*( dB(1)(0,j,k) + dE(2)(0,j,k) );
+            dB2(2)(0,j,k) = 0.5*( dB(2)(0,j,k) - dE(1)(0,j,k) );
+        }
+        PFOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
             dPsi2(-1,j,k) = 0.5*( dPsi(-1,j,k) - dB(0)(-1,j,k) );
             dE2(1)(-1,j,k) = 0.5*( dE(1)(-1,j,k) + dB(2)(-1,j,k) );
             dE2(2)(-1,j,k) = 0.5*( dE(2)(-1,j,k) - dB(1)(-1,j,k) );
@@ -201,8 +209,9 @@ public:
     }
 };
 
-Params PulsarParams(real k, real mu, real Omega, real alpha, real zeta) {
+Params PulsarParams(real RLC, real k, real mu, real Omega, real alpha, real zeta) {
     Params P;
+    P["RLC"] = RLC;
     P["k"] = k;
     P["mu"] = mu;
     P["Omega"] = Omega;
@@ -213,8 +222,9 @@ Params PulsarParams(real k, real mu, real Omega, real alpha, real zeta) {
 
 int main (int argc, const char * argv[])
 {
-    for ( real Omega = 0.2; Omega < 0.61; Omega += 0.05 )
-        Pulsar(24, 0.125, 1, "pulsar-dynamic", PulsarParams(1., 1., Omega, 100., 0.)).Run();
+    Pulsar(24, 0.125, 1, "pulsar-test", PulsarParams(25., 1., 1., 0.75, 0., 1.)).Run();
+/*    for ( real Omega = 0.5; Omega < 0.61; Omega += 0.01 )
+        Pulsar(12, 0.125, 1, "pulsar-test", PulsarParams(1., 1., Omega, 0., 1.)).Run();*/
     // insert code here...
     return 0;
 }

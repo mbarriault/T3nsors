@@ -61,7 +61,7 @@ T3::Set T3::System::Dissipate(const Set& U) {
             int C = Tensor::N[a];
             if ( C > 4 ) FOR(g,G) FOR(m,dc) {
                 int i = g*dg + m;
-                FRO(c,2,C-2)
+                PFRO(c,2,C-2)
                     dx[i+c*dc] += (x[i+(c-2)*dc]-4*x[i+(c-1)*dc]+6*x[i+c*dc]-4*x[i+(c+1)*dc]+x[i+(c+2)*dc])/16;
             }
         }

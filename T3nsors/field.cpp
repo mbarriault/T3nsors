@@ -74,6 +74,7 @@ real T3::Field::L2(int p) {
 }
 
 T3::Field operator-(T3::Field x) {
+#pragma omp parallel for
     for ( real& i : x )
         i *= -1;
     return x;

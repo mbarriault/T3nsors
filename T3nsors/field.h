@@ -52,6 +52,4 @@ T3::Field operator*(const real&, const T3::Field&);
 std::ostream& operator<<(std::ostream&, T3::Field);
 T3::Field LC(real,T3::Field*,...);
 
-//_LC_PROTOTYPE(T3::Field);
-
 #endif
