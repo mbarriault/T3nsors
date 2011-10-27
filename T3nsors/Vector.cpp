@@ -19,7 +19,7 @@ T3::Vector::Vector(Tensor x) : Tensor(x) {
 T3::Scalar T3::Vector::operator*(const Vector& v) const {
     const Vector& u = *this;
     Scalar uv;
-    FOR(i,Vector::dim) PFOR(o,u.N.Pr())
+    FOR(i,Vector::dim) PFOR(o,Vector::N.Pr())
         uv[o] += u[i][o]*v[i][o];
     return uv;
 }

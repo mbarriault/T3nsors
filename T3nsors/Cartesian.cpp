@@ -28,7 +28,7 @@ T3::Cartesian::Cartesian(int d, int n, real x0, real xn, ...) {
 T3::Vector T3::Cartesian::operator()(const T3::Scalar& x) const {
     Vector dx;
     FOR(i, Tensor::dim) {
-        dx[i] = at(i)((const Field)x);
+        dx[i] = at(i)(x);
     }
     dx.parent = x.parent;
     dx.fix();
