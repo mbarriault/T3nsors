@@ -22,6 +22,8 @@ typedef double real;
 #include <sstream>
 #include <sys/time.h>
 #include <cmath>
+#include <cstdlib>
+#include <cstdio>
 #include <unistd.h>
 
 namespace T3 {

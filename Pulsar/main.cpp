@@ -222,7 +222,7 @@ Params PulsarParams(real RLC, real k, real mu, real Omega, real alpha, real zeta
 
 int main (int argc, const char * argv[])
 {
-    Pulsar(24, 0.125, 1, "pulsar-test", PulsarParams(1., 1., 1., 0.75, 0., 1.)).Run();
+    Pulsar(24, 0.125, 1, "pulsar-test", PulsarParams(4., 1., 1., 0.75, 0., 1.)).Run();
 /*    for ( real Omega = 0.5; Omega < 0.61; Omega += 0.01 )
         Pulsar(12, 0.125, 1, "pulsar-test", PulsarParams(1., 1., Omega, 0., 1.)).Run();*/
     // insert code here...
