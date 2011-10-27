@@ -47,7 +47,6 @@ namespace T3 {
         }
         
         Array<T>& expand(const real& a) {
-#pragma omp parallel for
             for ( T& t : *this )
                 t *= a;
             return *this;
