@@ -8,7 +8,7 @@
 
 #include "System.h"
 
-T3::Partial T3::System::t(Partial::Cartesian(0, 10, 0., 1.));
+//T3::Partial T3::System::t(Partial::Cartesian(0, 10, 0., 1.));
 
 void T3::System::Evolve() {
     PreEvolve();

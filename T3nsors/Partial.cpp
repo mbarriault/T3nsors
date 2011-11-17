@@ -44,9 +44,9 @@ T3::Partial T3::Partial::Cartesian(int p, real d, real a, real b, Object* parent
 
 T3::Partial T3::Partial::Azimuth(int p, int n, Object* parent) {
     Partial D(p, 0., M_PI, n, parent);
-    D.a += D.d;
-    D.b -= D.d;
-    D.n -= 1;
+    D.a += D.d/2;
+    D.b -= D.d/2;
+//    D.n -= 1;
     D.bnd = bounds_bounce;
     return D;
 }

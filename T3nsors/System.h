@@ -18,7 +18,8 @@ namespace T3 {
         void Evolve();
         Set Dissipate(const Set&);
     public:
-        static Partial t;
+        Partial t;
+        Connection* Del;
         real epsilon;
         virtual Set RHS(Set&) = 0;
         virtual int Condition() = 0;

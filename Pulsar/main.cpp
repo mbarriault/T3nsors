@@ -29,11 +29,11 @@ Vector& dB2 = (Vector&)dx2.at(2);
 #include <cmath>
 using namespace T3;
 
-Params PulsarParams(real, real, real, real, real, real);
+Params PulsarParams(real, real, real, real, real, real, real);
 
 class Pulsar : public System {
 public:
-    Axisymmetric Del;
+    Axisymmetric Nabla;
     Partial& r;
     Partial& theta;
     Params P;
@@ -45,14 +45,15 @@ public:
     Stream EB, divB;
     Stream S;
     
-    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Del(Axisymmetric(n, 1., P["RLC"]/P["Omega"])), r(Del[0]) , theta(Del[1]) {
+    Pulsar(int n, real s, int rot, std::string iid, Params P) : P(P), Nabla(Axisymmetric(n, P["Rs"]/P["Omega"], P["RLC"]/P["Omega"])), r(Nabla[0]) , theta(Nabla[1]) {
+        Del = &Nabla;
         real T = rot*2*M_PI/P["Omega"];
-        System::t = Partial(0, 0., s*Del[0].d, T, this);
-        Stream::Del = &Del;
+        t = Partial(0, 0., s*Nabla[0].d, T, this);
+        //Stream::Del = &Del;
         id = mkdir(iid + timecoord());
-        epsilon = 0.5;
+        epsilon = 0.5/Nabla[0].d;
         c = P["alpha"]/(t(-1) * P["mu"]*P["mu"]/pow(r(0),6.) * (1 + pow(P["Omega"]*r(0), 2.) ) );
-        push_back(Stream(Scalar(), "u", this));
+        push_back(Stream(Scalar(), "Psi", this));
         push_back(Stream(Vector(), "E", this));
         push_back(Stream(Vector(), "B", this));
         
@@ -67,6 +68,7 @@ public:
     void Initialize() { SLINK
         Set x = Source(*this, Tensor::N[0]);
         
+        Psi = x[0];
         E = x[1];
         B = x[2];
         
@@ -81,6 +83,7 @@ public:
     
     Set Source(Set x, int in=1) { LINK
         PFRO(i,0,in) FOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
+            Psi(i,j,k) = 0.;
             B(0)(i,j,k) = 2*P["mu"]*cos(theta(j)) / pow(r(i),3.);
             B(1)(i,j,k) = P["mu"]*sin(theta(j)) / pow(r(i),3.);
             B(2)(i,j,k) = 0.;
@@ -102,7 +105,7 @@ public:
     }
     
     Scalar CalcRho(Set x) { LINK
-        Scalar rho = Del*E;
+        Scalar rho = Nabla*E;
         FOR(o,Tensor::N.Pr()) rho[o] /= 4*M_PI;
         return rho;
     }
@@ -127,7 +130,7 @@ public:
     }
     
     Scalar CalcDivB(Set x) { LINK
-        return Del*B;
+        return Nabla*B;
     }
     
     Set RHS(Set& x) { LINK
@@ -135,9 +138,9 @@ public:
         Set dx = x; DLINK
         Scalar divB = CalcDivB(x);
         Vector J = CalcJ(x);
-        Vector curlB = (Del&B);
-        Vector curlE = (Del&E);
-        Vector gradPsi = Del(Psi);
+        Vector curlB = (Nabla&B);
+        Vector curlE = (Nabla&E);
+        Vector gradPsi = Nabla(Psi);
         
         Vector F1;
         Vector F2;
@@ -154,14 +157,14 @@ public:
         dB = LC(-1., &curlE, 1., &gradPsi, -c, &F2, NULL);
         
         Set dx2 = dx; D2LINK
-        PFOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
+        /*PFOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
             dPsi2(0,j,k) = 0.5*( dPsi(0,j,k) + dB(0)(0,j,k) );
             dE2(1)(0,j,k) = 0.5*( dE(1)(0,j,k) - dB(2)(0,j,k) );
             dE2(2)(0,j,k) = 0.5*( dE(2)(0,j,k) + dB(1)(0,j,k) );
             dB2(0)(0,j,k) = 0.5*( dB(0)(0,j,k) + dPsi(0,j,k) );
             dB2(1)(0,j,k) = 0.5*( dB(1)(0,j,k) + dE(2)(0,j,k) );
             dB2(2)(0,j,k) = 0.5*( dB(2)(0,j,k) - dE(1)(0,j,k) );
-        }
+        }*/
         PFOR(j,Tensor::N[1]) FOR(k,Tensor::N[2]) {
             dPsi2(-1,j,k) = 0.5*( dPsi(-1,j,k) - dB(0)(-1,j,k) );
             dE2(1)(-1,j,k) = 0.5*( dE(1)(-1,j,k) + dB(2)(-1,j,k) );
@@ -209,8 +212,9 @@ public:
     }
 };
 
-Params PulsarParams(real RLC, real k, real mu, real Omega, real alpha, real zeta) {
+Params PulsarParams(real Rs, real RLC, real k, real mu, real Omega, real alpha, real zeta) {
     Params P;
+    P["Rs"] = Rs;
     P["RLC"] = RLC;
     P["k"] = k;
     P["mu"] = mu;
@@ -222,10 +226,9 @@ Params PulsarParams(real RLC, real k, real mu, real Omega, real alpha, real zeta
 
 int main (int argc, const char * argv[])
 {
-    Pulsar(48, 0.125, 2, "pulsar-test", PulsarParams(25., 1., 1., 0.75, 0., 1.)).Run();
-/*    for ( real Omega = 0.5; Omega < 0.61; Omega += 0.01 )
-        Pulsar(12, 0.125, 1, "pulsar-test", PulsarParams(1., 1., Omega, 0., 1.)).Run();*/
-    // insert code here...
+    //Pulsar(18, 0.25, 5, "pulsar-test", PulsarParams(0.2, 4., 1., 1., 0.5, 100., 0.)).Run();
+    for ( real Omega = 0.5; Omega < 0.61; Omega += 0.01 )
+        Pulsar(18, 0.25, 1, "pulsar-static", PulsarParams(0.2, 4., 1., 1., Omega, 0., 1.)).Run();
     return 0;
 }
 

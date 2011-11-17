@@ -11,10 +11,13 @@ F = t3py.hdf(func)
 l2f = []
 theta,r = numpy.meshgrid(F.x[1],F.x[0])
 for f in F:
-	val = 0
-	f = f.reshape(r.shape)
-	g = f*(r**2)*numpy.sin(theta)
-	l2f.append( math.sqrt(numpy.dot(g.flat,g.flat)/g.size) )
+    val = 0
+    try:
+        f = f.reshape(r.shape)
+    except ValueError:
+        f = f[0].reshape(r.shape)
+    g = f*(r**2)*numpy.sin(theta)
+    l2f.append( math.sqrt(numpy.dot(g.flat,g.flat)/g.size) )
 
 pyplot.plot(F.t, l2f)
 print l2f
