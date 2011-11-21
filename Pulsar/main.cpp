@@ -224,10 +224,16 @@ Params PulsarParams(real Rs, real RLC, real k, real mu, real Omega, real alpha, 
     return P;
 }
 
-int main (int argc, const char * argv[])
-{
-    for ( real Omega = 0.25; Omega <= 0.75; Omega += 0.25 )
-        Pulsar(18, 0.25, 5, "pulsar-static", PulsarParams(0.2, 4., 1., 1., Omega, 0., 100.)).Run();
+int main (int argc, const char * argv[]) {
+	if ( argc > 1 ) {
+		int w = atoi(argv[1]);
+		real Omega = 0.125*w;
+        Pulsar(18, 0.25, 20, "pulsar-static", PulsarParams(0.2, 4., 1., 1., Omega, 0., 1.)).Run();
+	}
+	else {
+        for ( real Omega = 0.25; Omega <= 0.75; Omega += 0.125 )
+            Pulsar(18, 0.25, 20, "pulsar-static", PulsarParams(0.2, 4., 1., 1., Omega, 0., 1.)).Run();
+    }
     return 0;
 }
 

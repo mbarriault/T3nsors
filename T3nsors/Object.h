@@ -13,7 +13,7 @@
 #define PFOR(n,N) _Pragma("omp parallel for") for ( int n=0; n<N; n++ )
 #define FRO(n,i,N) for ( int n=i; n<N; n++ )
 #define PFRO(n,i,N) _Pragma("omp parallel for") for ( int n=i; n<N; n++ )
-#define LOOP(N) _Pragma("omp parallel for") for ( int __n=0; __n<N; __n++ )
+#define LOOP(N) for ( int __n=0; __n<N; __n++ )
 
 typedef double real;
 

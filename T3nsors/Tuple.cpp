@@ -13,6 +13,7 @@ T3::Tuple::Tuple(int n, ...) {
     va_start(args, n);
     LOOP(n)
         push_back(va_arg(args, int));
+    va_end(args);
 }
 
 /*T3::Tuple::Tuple(std::initializer_list<int> init) : Array<int>(init) {
