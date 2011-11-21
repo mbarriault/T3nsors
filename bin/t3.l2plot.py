@@ -14,7 +14,7 @@ for f in F:
     val = 0
     try:
         f = f.reshape(r.shape)
-    except ValueError:
+    except (ValueError, AttributeError):
         f = f[0].reshape(r.shape)
     g = f*(r**2)*numpy.sin(theta)
     l2f.append( math.sqrt(numpy.dot(g.flat,g.flat)/g.size) )

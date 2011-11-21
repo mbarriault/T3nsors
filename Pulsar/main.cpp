@@ -61,7 +61,7 @@ public:
         info << id << std::endl;
         info << Tensor::N << std::endl;
         info << t << std::endl;
-        info << Del << std::endl;
+        info << *Del << std::endl;
         info << P << std::endl;
     }
     
@@ -226,9 +226,8 @@ Params PulsarParams(real Rs, real RLC, real k, real mu, real Omega, real alpha, 
 
 int main (int argc, const char * argv[])
 {
-    //Pulsar(18, 0.25, 5, "pulsar-test", PulsarParams(0.2, 4., 1., 1., 0.5, 100., 0.)).Run();
-    for ( real Omega = 0.5; Omega < 0.61; Omega += 0.01 )
-        Pulsar(18, 0.25, 1, "pulsar-static", PulsarParams(0.2, 4., 1., 1., Omega, 0., 1.)).Run();
+    for ( real Omega = 0.25; Omega <= 0.75; Omega += 0.25 )
+        Pulsar(18, 0.25, 5, "pulsar-static", PulsarParams(0.2, 4., 1., 1., Omega, 0., 100.)).Run();
     return 0;
 }
 

@@ -65,7 +65,19 @@ class hdf:
         info = open(file, 'r')
         for line in info.readlines():
             if param in line:
-                val = float( line.split(' ')[2] )
-                break
+                try:
+                    val = float( line.split(' ')[2] )
+                    break
+                except IndexError:
+                    pass
         return val
-        
+
+def expfit(x, y):
+    logx = numpy.log(x)
+    logy = numpy.log(y)
+    logfit = numpy.polyfit(logx, logy, 1)
+    b = logfit[0]
+    a = numpy.exp(logfit[1])
+    r = (y - a*x**b)**2
+    return (a, b, numpy.dot(r,r) )
+
